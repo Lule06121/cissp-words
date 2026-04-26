@@ -1,62 +1,122 @@
-[
+// domain8.json に追加するデータ (d8-011 〜 d8-030)
+  ,
   {
-    "id": "d8-001",
-    "domain": "D8: ソフトウェア開発セキュリティ",
-    "term": "SDLC",
-    "definition": "ソフトウェア開発ライフサイクル。"
+    "id": "d8-011", "domain": "D8: ソフトウェア開発セキュリティ",
+    "term": "Waterfall Model", "term_en": "Waterfall Model",
+    "definition": "要件定義、設計、実装、テスト、運用と、各工程を順番に完了させながら進める伝統的なソフトウェア開発手法。",
+    "definition_en": "A traditional, linear, sequential approach to software design and development where each phase must be completed before the next begins."
   },
   {
-    "id": "d8-002",
-    "domain": "D8: ソフトウェア開発セキュリティ",
-    "term": "Waterfall",
-    "definition": "滝のように上から順に各工程を進める手法。"
+    "id": "d8-012", "domain": "D8: ソフトウェア開発セキュリティ",
+    "term": "Agile Methodology", "term_en": "Agile Methodology",
+    "definition": "短いサイクル（スプリント）で開発とテストを反復し、要件の変更に柔軟に対応するソフトウェア開発手法。",
+    "definition_en": "An iterative approach to software development that emphasizes flexibility, collaboration, and rapid delivery of functional components."
   },
   {
-    "id": "d8-003",
-    "domain": "D8: ソフトウェア開発セキュリティ",
-    "term": "Agile",
-    "definition": "反復的で柔軟な開発手法。"
+    "id": "d8-013", "domain": "D8: ソフトウェア開発セキュリティ",
+    "term": "DevSecOps", "term_en": "DevSecOps",
+    "definition": "開発（Dev）と運用（Ops）のプロセス全体を通じて、セキュリティ（Sec）の責任とテストを統合・自動化するアプローチ。",
+    "definition_en": "The integration of security practices and testing continuously throughout the entire software development lifecycle and operations."
   },
   {
-    "id": "d8-004",
-    "domain": "D8: ソフトウェア開発セキュリティ",
-    "term": "DevSecOps",
-    "definition": "開発、運用にセキュリティを統合する文化と手法。"
+    "id": "d8-014", "domain": "D8: ソフトウェア開発セキュリティ",
+    "term": "Input Validation", "term_en": "Input Validation",
+    "definition": "ユーザーや外部からシステムに入力されるデータが、想定された形式や長さ、文字種に適合しているかを検証すること。注入攻撃を防ぐ基本。",
+    "definition_en": "The practice of testing all input supplied to an application to ensure it conforms to expected formats and prevents injection attacks."
   },
   {
-    "id": "d8-005",
-    "domain": "D8: ソフトウェア開発セキュリティ",
-    "term": "SAST",
-    "definition": "静的解析テスト。コードを実行せずに解析。"
+    "id": "d8-015", "domain": "D8: ソフトウェア開発セキュリティ",
+    "term": "SQL Injection", "term_en": "SQL Injection (SQLi)",
+    "definition": "入力フォーム等を通じて不正なSQLコマンドを注入し、データベースを不正に操作したり情報を窃取したりする攻撃。",
+    "definition_en": "An attack that injects malicious SQL commands into data input fields to manipulate or extract data from a backend database."
   },
   {
-    "id": "d8-006",
-    "domain": "D8: ソフトウェア開発セキュリティ",
-    "term": "DAST",
-    "definition": "動的解析テスト。実行中のアプリに対しテスト。"
+    "id": "d8-016", "domain": "D8: ソフトウェア開発セキュリティ",
+    "term": "Parameterized Queries", "term_en": "Parameterized Queries / Prepared Statements",
+    "definition": "SQL文の構造を固定し、外部からの入力値を単なる「パラメータ（データ）」として扱うことでSQLインジェクションを無効化する防御手法。",
+    "definition_en": "A secure coding technique that separates SQL code from user-supplied data, neutralizing SQL injection vulnerabilities."
   },
   {
-    "id": "d8-007",
-    "domain": "D8: ソフトウェア開発セキュリティ",
-    "term": "Input Validation",
-    "definition": "入力値の検証。SQLインジェクション等の防止に重要。"
+    "id": "d8-017", "domain": "D8: ソフトウェア開発セキュリティ",
+    "term": "XSS", "term_en": "Cross-Site Scripting (XSS)",
+    "definition": "Webページに悪意のあるスクリプトを埋め込み、ページを閲覧したユーザーのブラウザ上で実行させる攻撃。",
+    "definition_en": "An attack where malicious scripts are injected into trusted web pages and executed within the victim's browser."
   },
   {
-    "id": "d8-008",
-    "domain": "D8: ソフトウェア開発セキュリティ",
-    "term": "SQL Injection",
-    "definition": "DB操作命令を注入する攻撃。"
+    "id": "d8-018", "domain": "D8: ソフトウェア開発セキュリティ",
+    "term": "CSRF", "term_en": "Cross-Site Request Forgery (CSRF)",
+    "definition": "認証済みのユーザーに意図しないWebリクエスト（送金やパスワード変更など）を強制的に送信させる攻撃。",
+    "definition_en": "An attack that forces an authenticated user to execute unwanted actions on a web application in which they are currently authenticated."
   },
   {
-    "id": "d8-009",
-    "domain": "D8: ソフトウェア開発セキュリティ",
-    "term": "XSS",
-    "definition": "クロスサイトスクリプティング。スクリプトを注入。"
+    "id": "d8-019", "domain": "D8: ソフトウェア開発セキュリティ",
+    "term": "Buffer Overflow", "term_en": "Buffer Overflow",
+    "definition": "プログラムが確保したメモリ領域（バッファ）の限界を超えてデータを書き込み、システムをクラッシュさせたり任意のコードを実行させる攻撃。",
+    "definition_en": "An anomaly where a program writes data beyond the boundaries of an allocated memory buffer, potentially allowing arbitrary code execution."
   },
   {
-    "id": "d8-010",
-    "domain": "D8: ソフトウェア開発セキュリティ",
-    "term": "CSRF",
-    "definition": "クロスサイトリクエストフォージェリ。意図しない操作。"
+    "id": "d8-020", "domain": "D8: ソフトウェア開発セキュリティ",
+    "term": "API Security", "term_en": "API Security",
+    "definition": "アプリケーション間連携（RESTやSOAPなど）のインターフェースを、認証、レート制限、入力検証などによって保護すること。",
+    "definition_en": "The practice of protecting application programming interfaces from malicious attacks through authentication, rate limiting, and validation."
+  },
+  {
+    "id": "d8-021", "domain": "D8: ソフトウェア開発セキュリティ",
+    "term": "Code Signing", "term_en": "Code Signing",
+    "definition": "ソフトウェアやスクリプトにデジタル署名を付与し、作成者の身元証明と、配布後にコードが改ざんされていないこと（完全性）を保証する技術。",
+    "definition_en": "The process of digitally signing executables and scripts to confirm the software author and guarantee that the code has not been altered."
+  },
+  {
+    "id": "d8-022", "domain": "D8: ソフトウェア開発セキュリティ",
+    "term": "Obfuscation", "term_en": "Obfuscation",
+    "definition": "リバースエンジニアリングを困難にするため、ソースコードやバイナリの処理結果を変えずに、人間やツールにとって解読しにくい状態に変換すること。",
+    "definition_en": "The deliberate act of creating source or machine code that is difficult for humans or decompilers to understand, hindering reverse engineering."
+  },
+  {
+    "id": "d8-023", "domain": "D8: ソフトウェア開発セキュリティ",
+    "term": "SBOM", "term_en": "Software Bill of Materials (SBOM)",
+    "definition": "ソフトウェアを構成するオープンソースやサードパーティ製コンポーネントのリスト。サプライチェーンの脆弱性管理に不可欠。",
+    "definition_en": "A nested inventory, or list of ingredients, that make up software components to manage supply chain risks and vulnerabilities."
+  },
+  {
+    "id": "d8-024", "domain": "D8: ソフトウェア開発セキュリティ",
+    "term": "Polyinstantiation", "term_en": "Polyinstantiation",
+    "definition": "データベースにおいて、ユーザーのクリアランス（権限レベル）に応じて、同じ主キーに対して異なるデータを表示する技術。推論攻撃を防ぐ。",
+    "definition_en": "Developing multiple views of a database record depending on the security clearance of the user, preventing inference attacks."
+  },
+  {
+    "id": "d8-025", "domain": "D8: ソフトウェア開発セキュリティ",
+    "term": "Inference", "term_en": "Inference Attack",
+    "definition": "アクセス権のある非機密データ（低位の情報）を論理的に分析し、アクセス権のない機密情報（高位の情報）を推測する攻撃。",
+    "definition_en": "An attack where a user deduces classified or sensitive information from available unclassified or lower-level data."
+  },
+  {
+    "id": "d8-026", "domain": "D8: ソフトウェア開発セキュリティ",
+    "term": "Aggregation", "term_en": "Aggregation Attack",
+    "definition": "個々では機密性の低いデータを大量に収集・結合することで、全体として機密性の高い情報セットを作り出す攻撃。",
+    "definition_en": "The act of combining multiple pieces of non-sensitive information to create a sensitive or classified body of information."
+  },
+  {
+    "id": "d8-027", "domain": "D8: ソフトウェア開発セキュリティ",
+    "term": "Ransomware", "term_en": "Ransomware",
+    "definition": "被害者のデータを暗号化したりシステムをロックしたりして、復旧と引き換えに身代金を要求するマルウェア。",
+    "definition_en": "A type of malicious software designed to block access to a computer system or encrypt data until a sum of money is paid."
+  },
+  {
+    "id": "d8-028", "domain": "D8: ソフトウェア開発セキュリティ",
+    "term": "Trojan Horse", "term_en": "Trojan Horse",
+    "definition": "有用なソフトウェアを装ってユーザーに実行させ、バックドアの設置など悪意のある動作を行うマルウェア。自己増殖はしない。",
+    "definition_en": "Malware that disguises itself as legitimate software to trick users into executing it, often establishing a backdoor."
+  },
+  {
+    "id": "d8-029", "domain": "D8: ソフトウェア開発セキュリティ",
+    "term": "Logic Bomb", "term_en": "Logic Bomb",
+    "definition": "「特定の日時」や「従業員名簿からの名前の削除」など、事前に設定された条件が満たされたときに悪意のあるコードを実行するプログラム。",
+    "definition_en": "Malicious code inserted into software that executes a harmful function when a specific condition or event occurs."
+  },
+  {
+    "id": "d8-030", "domain": "D8: ソフトウェア開発セキュリティ",
+    "term": "Zero-Day Exploit", "term_en": "Zero-Day Exploit",
+    "definition": "ソフトウェアの脆弱性が発見され、ベンダーから修正パッチが提供される「前」に、その脆弱性を突いて行われるサイバー攻撃。",
+    "definition_en": "A cyberattack that occurs on the same day a weakness is discovered in software, before a patch is available."
   }
-]

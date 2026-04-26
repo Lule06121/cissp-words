@@ -1,62 +1,122 @@
-[
+// domain7.json に追加するデータ (d7-011 〜 d7-030)
+  ,
   {
-    "id": "d7-001",
-    "domain": "D7: セキュリティの運用",
-    "term": "Need to Know",
-    "definition": "業務遂行に最低限必要な情報のみへのアクセスを許可。"
+    "id": "d7-011", "domain": "D7: セキュリティ運用",
+    "term": "Incident Response Plan", "term_en": "Incident Response Plan (IRP)",
+    "definition": "セキュリティインシデント発生時の対応手順（準備、検知・分析、封じ込め・根絶・復旧、事後活動）を定めた計画。",
+    "definition_en": "A documented plan outlining the steps for preparing, detecting, containing, eradicating, and recovering from security incidents."
   },
   {
-    "id": "d7-002",
-    "domain": "D7: セキュリティの運用",
-    "term": "Least Privilege",
-    "definition": "業務遂行に最低限必要な権限のみを付与。"
+    "id": "d7-012", "domain": "D7: セキュリティ運用",
+    "term": "Chain of Custody", "term_en": "Chain of Custody",
+    "definition": "デジタルフォレンジックにおいて、証拠が誰によっていつ収集・保管・移送されたかを記録し、証拠の完全性を法的に証明する履歴。",
+    "definition_en": "The chronological documentation or paper trail that records the sequence of custody, control, transfer, analysis, and disposition of evidence."
   },
   {
-    "id": "d7-003",
-    "domain": "D7: セキュリティの運用",
-    "term": "Separation of Duties",
-    "definition": "職務分掌。不正防止のためプロセスを分割する。"
+    "id": "d7-013", "domain": "D7: セキュリティ運用",
+    "term": "eDiscovery", "term_en": "eDiscovery (Electronic Discovery)",
+    "definition": "法的紛争や訴訟に備えて、電子的に保存された情報（ESI）を特定、収集、保全、および提出するプロセス。",
+    "definition_en": "The process of locating, securing, and searching electronic data with the intent of using it as evidence in a legal case."
   },
   {
-    "id": "d7-004",
-    "domain": "D7: セキュリティの運用",
-    "term": "Incident Response",
-    "definition": "検知、対応、復旧、事後活動のプロセス。"
+    "id": "d7-014", "domain": "D7: セキュリティ運用",
+    "term": "MTTR", "term_en": "Mean Time to Repair (MTTR)",
+    "definition": "障害が発生してからシステムが復旧するまでの平均時間。保守性やインシデント対応の迅速さを示す指標。",
+    "definition_en": "The average time required to troubleshoot and repair a failed equipment or system and return it to normal operating conditions."
   },
   {
-    "id": "d7-005",
-    "domain": "D7: セキュリティの運用",
-    "term": "Forensics",
-    "definition": "法的証拠として採用可能な形式でデータを収集・分析。"
+    "id": "d7-015", "domain": "D7: セキュリティ運用",
+    "term": "MTBF", "term_en": "Mean Time Between Failures (MTBF)",
+    "definition": "システムが正常に稼働してから、次の障害が発生するまでの平均時間。システムの信頼性を示す指標。",
+    "definition_en": "The predicted elapsed time between inherent failures of a mechanical or electronic system during normal system operation."
   },
   {
-    "id": "d7-006",
-    "domain": "D7: セキュリティの運用",
-    "term": "Chain of Custody",
-    "definition": "証拠の保管継続性。誰がいつ扱ったかを記録。"
+    "id": "d7-016", "domain": "D7: セキュリティ運用",
+    "term": "Hot Site", "term_en": "Hot Site",
+    "definition": "主センターと同等のハードウェア、ソフトウェア、最新のデータが完全に整備され、数時間以内に切り替え可能な代替施設。",
+    "definition_en": "A fully configured disaster recovery facility with all necessary hardware, software, and real-time data, ready to operate within hours."
   },
   {
-    "id": "d7-007",
-    "domain": "D7: セキュリティの運用",
-    "term": "Patch Management",
-    "definition": "脆弱性を修正するためプログラムを更新・管理。"
+    "id": "d7-017", "domain": "D7: セキュリティ運用",
+    "term": "Warm Site", "term_en": "Warm Site",
+    "definition": "ハードウェアとネットワークは整備されているが、最新のデータや本番環境の復元に数日を要する代替施設。",
+    "definition_en": "A disaster recovery facility equipped with hardware and connectivity, but requiring data restoration and configuration before operations can resume."
   },
   {
-    "id": "d7-008",
-    "domain": "D7: セキュリティの運用",
-    "term": "Change Management",
-    "definition": "システム変更を承認・記録し、混乱を防ぐ。"
+    "id": "d7-018", "domain": "D7: セキュリティ運用",
+    "term": "Cold Site", "term_en": "Cold Site",
+    "definition": "電源や空調などのインフラのみが整備されており、ハードウェアの搬入や設定から始めるため復旧に数週間を要する代替施設。",
+    "definition_en": "A backup facility with basic infrastructure (power, cooling) but no computing equipment or data, requiring significant time to become operational."
   },
   {
-    "id": "d7-009",
-    "domain": "D7: セキュリティの運用",
-    "term": "Egress Filtering",
-    "definition": "内部から外部への通信を制限・監視。"
+    "id": "d7-019", "domain": "D7: セキュリティ運用",
+    "term": "Tabletop Exercise", "term_en": "Tabletop Exercise",
+    "definition": "インシデントや災害を想定し、関係者が会議室に集まって計画や対応手順を机上で議論・検証するテスト手法。",
+    "definition_en": "A discussion-based exercise where personnel meet in a classroom setting to discuss their roles and responses during an emergency."
   },
   {
-    "id": "d7-010",
-    "domain": "D7: セキュリティの運用",
-    "term": "SLA",
-    "definition": "サービスレベル合意。サービスの品質基準を定義。"
+    "id": "d7-020", "domain": "D7: セキュリティ運用",
+    "term": "Parallel Test", "term_en": "Parallel Test",
+    "definition": "本番環境を稼働させたまま、代替施設（DRサイト）でも同時にシステムを立ち上げ、正常に機能するかを検証するテスト。",
+    "definition_en": "A disaster recovery test where the backup facility is activated and processing is performed concurrently with the primary site."
+  },
+  {
+    "id": "d7-021", "domain": "D7: セキュリティ運用",
+    "term": "Full-Interruption Test", "term_en": "Full-Interruption Test",
+    "definition": "本番環境を意図的に完全に停止させ、代替施設での復旧と業務再開を実際に行う、最も現実的でリスクの高いテスト。",
+    "definition_en": "A disaster recovery test that simulates a real disaster by shutting down the primary site and shifting all processing to the backup site."
+  },
+  {
+    "id": "d7-022", "domain": "D7: セキュリティ運用",
+    "term": "Differential Backup", "term_en": "Differential Backup",
+    "definition": "前回の「フルバックアップ」以降に変更されたすべてのデータを保存する方式。復元は速いが、バックアップ時間は徐々に長くなる。",
+    "definition_en": "A backup type that copies all data modified since the last full backup. Recovery is faster, but backup size grows daily."
+  },
+  {
+    "id": "d7-023", "domain": "D7: セキュリティ運用",
+    "term": "Incremental Backup", "term_en": "Incremental Backup",
+    "definition": "前回の「任意のバックアップ」以降に変更されたデータのみを保存する方式。バックアップは速いが、復元に時間がかかる。",
+    "definition_en": "A backup type that copies only the data changed since the last backup of any type. Fast backups, but slower recovery."
+  },
+  {
+    "id": "d7-024", "domain": "D7: セキュリティ運用",
+    "term": "Job Rotation", "term_en": "Job Rotation",
+    "definition": "従業員の役割や担当業務を定期的に変更すること。不正行為の発見（発見的統制）や、属人化の排除を目的とする。",
+    "definition_en": "The practice of periodically shifting employees between different roles to detect fraud and reduce single points of failure."
+  },
+  {
+    "id": "d7-025", "domain": "D7: セキュリティ運用",
+    "term": "Mandatory Vacations", "term_en": "Mandatory Vacations",
+    "definition": "従業員に強制的に連続した休暇を取得させる制度。不在の間に他の担当者が業務を行うことで、隠蔽された不正を発見する。",
+    "definition_en": "A policy requiring employees to take consecutive days off, allowing others to perform their duties and potentially uncover fraudulent activities."
+  },
+  {
+    "id": "d7-026", "domain": "D7: セキュリティ運用",
+    "term": "Two-Person Control", "term_en": "Two-Person Control",
+    "definition": "重要な操作やタスクを実行する際、必ず2人の担当者が同時に承認・操作することを義務付けるセキュリティ原則。",
+    "definition_en": "A security mechanism requiring the active, concurrent participation of two authorized individuals to complete a critical operation."
+  },
+  {
+    "id": "d7-027", "domain": "D7: セキュリティ運用",
+    "term": "Clipping Level", "term_en": "Clipping Level",
+    "definition": "ログ監視において、管理者にアラートを通知する閾値（例：パスワードの入力ミスが5回を超えたら通知）。",
+    "definition_en": "A predefined threshold for a specific type of event, above which an alert is generated or action is taken."
+  },
+  {
+    "id": "d7-028", "domain": "D7: セキュリティ運用",
+    "term": "Configuration Management", "term_en": "Configuration Management",
+    "definition": "システムのハードウェアやソフトウェアの設定情報を一元的に管理し、一貫したベースラインを維持するプロセス。",
+    "definition_en": "A process for establishing and maintaining consistency of a product's performance, functional, and physical attributes with its requirements."
+  },
+  {
+    "id": "d7-029", "domain": "D7: セキュリティ運用",
+    "term": "Patch Management", "term_en": "Patch Management",
+    "definition": "ソフトウェアの脆弱性を修正するための更新プログラム（パッチ）を、テストを経て計画的にシステムへ適用するプロセス。",
+    "definition_en": "The process of acquiring, testing, and installing multiple patches to computer systems to mitigate vulnerabilities."
+  },
+  {
+    "id": "d7-030", "domain": "D7: セキュリティ運用",
+    "term": "Sandboxing", "term_en": "Sandboxing",
+    "definition": "不審なプログラムやマルウェアを、本番環境から隔離された安全な仮想環境内で実行し、その挙動を分析する手法。",
+    "definition_en": "Executing potentially malicious software in an isolated environment to observe its behavior without risking the host system."
   }
-]
