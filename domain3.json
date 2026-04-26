@@ -1,62 +1,122 @@
-[
+// domain3.json に追加するデータ (d3-011 〜 d3-030)
+  ,
   {
-    "id": "d3-001",
-    "domain": "D3: セキュリティアーキテクチャとエンジニアリング",
-    "term": "Abstractions",
-    "definition": "システムの複雑さを隠し、重要な詳細のみを表示すること。"
+    "id": "d3-011", "domain": "D3: アーキテクチャとエンジニアリング",
+    "term": "TPM", "term_en": "Trusted Platform Module",
+    "definition": "マザーボード上に実装され、暗号鍵の生成・保管やハードウェアの改ざん検知を行うセキュリティチップ。",
+    "definition_en": "A security chip on a motherboard that stores cryptographic keys and detects hardware tampering."
   },
   {
-    "id": "d3-002",
-    "domain": "D3: セキュリティアーキテクチャとエンジニアリング",
-    "term": "Layering",
-    "definition": "多層防御を実現するためにセキュリティ機能を階層化すること。"
+    "id": "d3-012", "domain": "D3: アーキテクチャとエンジニアリング",
+    "term": "HSM", "term_en": "Hardware Security Module",
+    "definition": "暗号鍵の管理や暗号化処理を安全に行うための、独立した物理的/論理的なハードウェアデバイス。",
+    "definition_en": "A physical computing device that safeguards and manages digital keys for strong authentication and provides cryptoprocessing."
   },
   {
-    "id": "d3-003",
-    "domain": "D3: セキュリティアーキテクチャとエンジニアリング",
-    "term": "Kernel",
-    "definition": "OSの中核で、リソース管理とセキュリティ強制を行う。"
+    "id": "d3-013", "domain": "D3: アーキテクチャとエンジニアリング",
+    "term": "TOCTOU", "term_en": "Time of Check to Time of Use",
+    "definition": "システムの条件を確認した時点（Check）と、実際に使用する時点（Use）の間のタイムラグを突く競合状態攻撃。",
+    "definition_en": "A race condition attack that exploits the time gap between checking a condition and using the results."
   },
   {
-    "id": "d3-004",
-    "domain": "D3: セキュリティアーキテクチャとエンジニアリング",
-    "term": "Reference Monitor",
-    "definition": "アクセスを仲介しポリシーを強制する概念。"
+    "id": "d3-014", "domain": "D3: アーキテクチャとエンジニアリング",
+    "term": "Covert Storage Channel", "term_en": "Covert Storage Channel",
+    "definition": "あるプロセスが記憶領域にデータを書き込み、別のプロセスがそれを読み取ることで、意図しない情報の伝達を行う隠しチャネル。",
+    "definition_en": "A covert channel that involves writing to a storage location by one process and reading by another to transfer information."
   },
   {
-    "id": "d3-005",
-    "domain": "D3: セキュリティアーキテクチャとエンジニアリング",
-    "term": "Security Kernel",
-    "definition": "レファレンスモニターを実装したハード/ソフト/ファームウェア。"
+    "id": "d3-015", "domain": "D3: アーキテクチャとエンジニアリング",
+    "term": "Covert Timing Channel", "term_en": "Covert Timing Channel",
+    "definition": "プロセスの実行時間やリソースの使用タイミングを変化させることで、情報を外部に伝達する隠しチャネル。",
+    "definition_en": "A covert channel that conveys information by altering the performance or timing of a system component."
   },
   {
-    "id": "d3-006",
-    "domain": "D3: セキュリティアーキテクチャとエンジニアリング",
-    "term": "TCB",
-    "definition": "Trusted Computing Base。システムの全セキュリティ要素。"
+    "id": "d3-016", "domain": "D3: アーキテクチャとエンジニアリング",
+    "term": "Zero Trust Architecture", "term_en": "Zero Trust Architecture",
+    "definition": "ネットワークの境界内であっても一切信頼せず、全てのリクエストに対して検証と認証を要求するセキュリティモデル。",
+    "definition_en": "A security model requiring strict identity verification for every person and device trying to access resources, regardless of location."
   },
   {
-    "id": "d3-007",
-    "domain": "D3: セキュリティアーキテクチャとエンジニアリング",
-    "term": "Bell-LaPadula",
-    "definition": "機密性重視のモデル（No Read Up / No Write Down）。"
+    "id": "d3-017", "domain": "D3: アーキテクチャとエンジニアリング",
+    "term": "Microsegmentation", "term_en": "Microsegmentation",
+    "definition": "ネットワークを細かなセグメントに分割し、ワークロード間の通信（ラテラルムーブメント）を厳密に制御する技術。",
+    "definition_en": "A technique that divides a network into logical segments to control lateral movement and isolate workloads."
   },
   {
-    "id": "d3-008",
-    "domain": "D3: セキュリティアーキテクチャとエンジニアリング",
-    "term": "Biba",
-    "definition": "完全性重視のモデル（No Read Down / No Write Up）。"
+    "id": "d3-018", "domain": "D3: アーキテクチャとエンジニアリング",
+    "term": "Fail-Safe", "term_en": "Fail-Safe",
+    "definition": "障害発生時に、システムが安全な状態（人命優先・機器保護など）で停止する設計。",
+    "definition_en": "A design where a system defaults to a safe state (protecting life or equipment) when a failure occurs."
   },
   {
-    "id": "d3-009",
-    "domain": "D3: セキュリティアーキテクチャとエンジニアリング",
-    "term": "Clark-Wilson",
-    "definition": "職務分掌と整合性を重視した商用モデル。"
+    "id": "d3-019", "domain": "D3: アーキテクチャとエンジニアリング",
+    "term": "Fail-Secure", "term_en": "Fail-Secure",
+    "definition": "障害発生時に、セキュリティ（機密性・完全性）を最優先にしてシステムをロックダウンする設計。",
+    "definition_en": "A design where a system defaults to a secure state (preserving confidentiality and integrity) when a failure occurs."
   },
   {
-    "id": "d3-010",
-    "domain": "D3: セキュリティアーキテクチャとエンジニアリング",
-    "term": "Brewer-Nash",
-    "definition": "利害衝突を防ぐモデル（チャイニーズウォール）。"
+    "id": "d3-020", "domain": "D3: アーキテクチャとエンジニアリング",
+    "term": "IaC", "term_en": "Infrastructure as Code",
+    "definition": "サーバーやネットワークなどのインフラ構成を、コードを用いて自動的に構築・管理する手法。",
+    "definition_en": "The process of managing and provisioning computing infrastructure through machine-readable definition files."
+  },
+  {
+    "id": "d3-021", "domain": "D3: アーキテクチャとエンジニアリング",
+    "term": "Defense in Depth", "term_en": "Defense in Depth",
+    "definition": "多層防御。一つのセキュリティ対策が破られても、別の層で防御できるように複数の対策を重ねる概念。",
+    "definition_en": "An approach using multiple layers of security controls so that if one fails, others are in place to thwart an attack."
+  },
+  {
+    "id": "d3-022", "domain": "D3: アーキテクチャとエンジニアリング",
+    "term": "State Machine Model", "term_en": "State Machine Model",
+    "definition": "システムの状態が遷移する際、あらゆる時点においてセキュリティポリシーが維持されることを保証する抽象モデル。",
+    "definition_en": "An abstract model verifying that a system is secure in every state and during state transitions."
+  },
+  {
+    "id": "d3-023", "domain": "D3: アーキテクチャとエンジニアリング",
+    "term": "Non-interference Model", "term_en": "Non-interference Model",
+    "definition": "高位のセキュリティレベルでのアクションが、低位のレベルの出力や状態に一切影響を与えないことを保証するモデル。",
+    "definition_en": "A model ensuring that actions at a higher security level do not affect the observable state at a lower security level."
+  },
+  {
+    "id": "d3-024", "domain": "D3: アーキテクチャとエンジニアリング",
+    "term": "Symmetric Cryptography", "term_en": "Symmetric Cryptography",
+    "definition": "共通鍵暗号。データの暗号化と復号に同じ鍵を使用する方式。高速だが鍵配送に課題がある。AESなど。",
+    "definition_en": "Cryptography where the same key is used for both encryption and decryption. Fast but requires secure key exchange."
+  },
+  {
+    "id": "d3-025", "domain": "D3: アーキテクチャとエンジニアリング",
+    "term": "Asymmetric Cryptography", "term_en": "Asymmetric Cryptography",
+    "definition": "公開鍵暗号。公開鍵で暗号化し、秘密鍵で復号する方式。鍵配送問題は解決するが処理が遅い。RSAなど。",
+    "definition_en": "Cryptography using a key pair (public and private). Solves key exchange issues but is computationally slower."
+  },
+  {
+    "id": "d3-026", "domain": "D3: アーキテクチャとエンジニアリング",
+    "term": "Hashing", "term_en": "Hashing",
+    "definition": "任意の長さのデータを固定長の不可逆な文字列（ハッシュ値）に変換する技術。完全性の確認に用いる。SHA-256など。",
+    "definition_en": "Converting data into a fixed-length value. Used to verify data integrity since it is a one-way function."
+  },
+  {
+    "id": "d3-027", "domain": "D3: アーキテクチャとエンジニアリング",
+    "term": "Digital Signature", "term_en": "Digital Signature",
+    "definition": "送信者の秘密鍵でハッシュ値を暗号化したもの。送信者の認証、データの完全性、および否認防止を提供する。",
+    "definition_en": "A hash encrypted with the sender's private key, providing authentication, non-repudiation, and integrity."
+  },
+  {
+    "id": "d3-028", "domain": "D3: アーキテクチャとエンジニアリング",
+    "term": "PKI", "term_en": "Public Key Infrastructure",
+    "definition": "デジタル証明書と公開鍵の生成、配布、管理、無効化を行うためのハードウェア、ソフトウェア、手順の総称。",
+    "definition_en": "A framework to manage digital certificates and public keys for secure electronic transfer of information."
+  },
+  {
+    "id": "d3-029", "domain": "D3: アーキテクチャとエンジニアリング",
+    "term": "Certificate Authority (CA)", "term_en": "Certificate Authority (CA)",
+    "definition": "デジタル証明書を発行し、公開鍵と対象者（サーバーや個人）の身元を紐づける信頼された第三者機関。",
+    "definition_en": "A trusted entity that issues digital certificates, binding public keys to entities."
+  },
+  {
+    "id": "d3-030", "domain": "D3: アーキテクチャとエンジニアリング",
+    "term": "Salt", "term_en": "Salt",
+    "definition": "パスワードをハッシュ化する前に付加されるランダムなデータ。レインボーテーブル攻撃や辞書攻撃を防ぐ。",
+    "definition_en": "Random data added to a password before hashing to defend against rainbow tables and dictionary attacks."
   }
-]

@@ -1,62 +1,122 @@
-[
+// domain4.json に追加するデータ (d4-011 〜 d4-030)
+  ,
   {
-    "id": "d4-001",
-    "domain": "D4: 通信とネットワークのセキュリティ",
-    "term": "OSI Model",
-    "definition": "ネットワーク通信を7つの階層で定義したモデル。"
+    "id": "d4-011", "domain": "D4: ネットワークセキュリティ",
+    "term": "IPsec AH", "term_en": "IPsec Authentication Header (AH)",
+    "definition": "IPsecの一部で、パケットの送信元認証と完全性を提供するプロトコル。暗号化は行わない。",
+    "definition_en": "An IPsec protocol that provides data integrity and origin authentication, but not confidentiality."
   },
   {
-    "id": "d4-002",
-    "domain": "D4: 通信とネットワークのセキュリティ",
-    "term": "TCP/IP Model",
-    "definition": "4つの階層（リンク、インターネット、トランスポート、アプリ）。"
+    "id": "d4-012", "domain": "D4: ネットワークセキュリティ",
+    "term": "IPsec ESP", "term_en": "IPsec Encapsulating Security Payload (ESP)",
+    "definition": "IPsecの一部で、パケットの暗号化（機密性）と認証・完全性を提供するプロトコル。",
+    "definition_en": "An IPsec protocol that provides confidentiality (encryption) along with authentication and integrity."
   },
   {
-    "id": "d4-003",
-    "domain": "D4: 通信とネットワークのセキュリティ",
-    "term": "DNS",
-    "definition": "ドメイン名とIPアドレスを変換するシステム。"
+    "id": "d4-013", "domain": "D4: ネットワークセキュリティ",
+    "term": "IKE", "term_en": "Internet Key Exchange (IKE)",
+    "definition": "IPsecで使用されるセキュリティアソシエーション（SA）を確立し、鍵交換を安全に行うためのプロトコル。",
+    "definition_en": "The protocol used to set up a security association (SA) and exchange keys in the IPsec protocol suite."
   },
   {
-    "id": "d4-004",
-    "domain": "D4: 通信とネットワークのセキュリティ",
-    "term": "DHCP",
-    "definition": "IPアドレスを動的に割り当てるプロトコル。"
+    "id": "d4-014", "domain": "D4: ネットワークセキュリティ",
+    "term": "VLAN Hopping", "term_en": "VLAN Hopping",
+    "definition": "スイッチのポート設定の不備などを突き、本来アクセス権のない別のVLANへトラフィックを送り込む攻撃。",
+    "definition_en": "An attack where an attacker bypasses network segmentation to send traffic to a VLAN they are not authorized to access."
   },
   {
-    "id": "d4-005",
-    "domain": "D4: 通信とネットワークのセキュリティ",
-    "term": "VLAN",
-    "definition": "物理構成に関わらず論理的にネットワークを分割。"
+    "id": "d4-015", "domain": "D4: ネットワークセキュリティ",
+    "term": "ARP Spoofing", "term_en": "ARP Spoofing / Poisoning",
+    "definition": "偽のARP応答を送信し、攻撃者のMACアドレスと標的のIPアドレスを関連付けさせ、通信を傍受する攻撃。",
+    "definition_en": "An attack where forged ARP messages associate the attacker's MAC address with the IP address of a legitimate host."
   },
   {
-    "id": "d4-006",
-    "domain": "D4: 通信とネットワークのセキュリティ",
-    "term": "IPSec",
-    "definition": "ネットワーク層で暗号化と認証を提供するプロトコル。"
+    "id": "d4-016", "domain": "D4: ネットワークセキュリティ",
+    "term": "802.1X", "term_en": "IEEE 802.1X",
+    "definition": "ネットワーク接続時にポートベースでユーザーやデバイスの認証（EAPなど）を要求するアクセス制御規格。",
+    "definition_en": "An IEEE standard for port-based network access control (PNAC), providing authentication for devices attached to a LAN."
   },
   {
-    "id": "d4-007",
-    "domain": "D4: 通信とネットワークのセキュリティ",
-    "term": "TLS",
-    "definition": "トランスポート層で通信を暗号化するプロトコル。"
+    "id": "d4-017", "domain": "D4: ネットワークセキュリティ",
+    "term": "NAC", "term_en": "Network Access Control (NAC)",
+    "definition": "デバイスのセキュリティ状態（パッチ適用状況など）を検査し、ポリシーに準拠した端末のみネットワーク接続を許可する仕組み。",
+    "definition_en": "A solution that ensures only compliant, authenticated devices gain access to the network infrastructure."
   },
   {
-    "id": "d4-008",
-    "domain": "D4: 通信とネットワークのセキュリティ",
-    "term": "WPA3",
-    "definition": "最新の無線LANセキュリティ規格。"
+    "id": "d4-018", "domain": "D4: ネットワークセキュリティ",
+    "term": "SD-WAN", "term_en": "Software-Defined WAN",
+    "definition": "ソフトウェア制御によってWAN回線（MPLS、インターネット等）を論理的に束ね、トラフィックを動的に最適化する技術。",
+    "definition_en": "A software-defined approach to managing wide-area networks, dynamically routing traffic across multiple links."
   },
   {
-    "id": "d4-009",
-    "domain": "D4: 通信とネットワークのセキュリティ",
-    "term": "Firewall",
-    "definition": "トラフィックを監視し、ルールに基づき制御する。"
+    "id": "d4-019", "domain": "D4: ネットワークセキュリティ",
+    "term": "BGP Hijacking", "term_en": "BGP Hijacking",
+    "definition": "不正なルーティング情報をBGPでアドバタイズ（宣伝）し、正規のインターネットトラフィックを攻撃者の経路に引き込む攻撃。",
+    "definition_en": "The malicious rerouting of Internet traffic by falsely announcing ownership of groups of IP addresses."
   },
   {
-    "id": "d4-010",
-    "domain": "D4: 通信とネットワークのセキュリティ",
-    "term": "IDS/IPS",
-    "definition": "不正侵入を検知・防御するシステム。"
+    "id": "d4-020", "domain": "D4: ネットワークセキュリティ",
+    "term": "Stateful Inspection", "term_en": "Stateful Inspection Firewall",
+    "definition": "パケットのヘッダ情報だけでなく、通信のセッション状態（ステート）を記憶・追跡してアクセス制御を行うファイアウォール。",
+    "definition_en": "A firewall that monitors the active connections and determines which packets to allow based on the state of the session."
+  },
+  {
+    "id": "d4-021", "domain": "D4: ネットワークセキュリティ",
+    "term": "WAF", "term_en": "Web Application Firewall",
+    "definition": "SQLインジェクションやXSSなど、Webアプリケーション（HTTP/HTTPS通信）に対する特有の攻撃を検知・防御するシステム。",
+    "definition_en": "A firewall that filters, monitors, and blocks HTTP traffic to and from a web application to protect against attacks like XSS or SQL injection."
+  },
+  {
+    "id": "d4-022", "domain": "D4: ネットワークセキュリティ",
+    "term": "Signature-based IDS", "term_en": "Signature-based IDS",
+    "definition": "既知の攻撃パターン（シグネチャ）と通信内容を比較して不正侵入を検知する方式。未知の攻撃には無力。",
+    "definition_en": "An intrusion detection system that identifies malicious activity by comparing network traffic against a database of known attack patterns."
+  },
+  {
+    "id": "d4-023", "domain": "D4: ネットワークセキュリティ",
+    "term": "Anomaly-based IDS", "term_en": "Anomaly-based IDS",
+    "definition": "通常の通信トラフィックのベースラインを学習し、そこから逸脱する異常な振る舞いを検知する方式。誤検知が多い。",
+    "definition_en": "An IDS that detects intrusions by comparing current network activity to a baseline of normal behavior."
+  },
+  {
+    "id": "d4-024", "domain": "D4: ネットワークセキュリティ",
+    "term": "Honeypot", "term_en": "Honeypot",
+    "definition": "攻撃者をおびき寄せるために意図的に脆弱な状態にしたシステム。攻撃手法の分析や早期検知に用いる。",
+    "definition_en": "A decoy system designed to attract attackers, allowing security teams to analyze their methods and delay attacks."
+  },
+  {
+    "id": "d4-025", "domain": "D4: ネットワークセキュリティ",
+    "term": "Captive Portal", "term_en": "Captive Portal",
+    "definition": "公衆Wi-Fiなどで、利用規約の同意や認証を要求するためにブラウザ上に強制的に表示されるWebページ。",
+    "definition_en": "A web page that a user of a public-access network is obliged to view and interact with before accessing the internet."
+  },
+  {
+    "id": "d4-026", "domain": "D4: ネットワークセキュリティ",
+    "term": "SCADA", "term_en": "Supervisory Control and Data Acquisition",
+    "definition": "工場や発電所などの産業用制御システム（ICS）において、遠隔地の機器を監視・制御するシステム。",
+    "definition_en": "A control system architecture comprising computers, network data interfaces, and GUIs for high-level process supervisory management."
+  },
+  {
+    "id": "d4-027", "domain": "D4: ネットワークセキュリティ",
+    "term": "Convergence", "term_en": "Network Convergence",
+    "definition": "音声、映像、データなど、従来は別々だった通信ネットワークをIPネットワーク上に統合すること（VoIPなど）。",
+    "definition_en": "The integration of voice, video, and data communications over a single IP-based network."
+  },
+  {
+    "id": "d4-028", "domain": "D4: ネットワークセキュリティ",
+    "term": "DLP", "term_en": "Data Loss Prevention (Network Level)",
+    "definition": "ネットワーク上を流れるトラフィックを監視し、機密データの外部送信（メール添付やクラウドアップロードなど）を検知・ブロックする仕組み。",
+    "definition_en": "Solutions that monitor outbound network traffic to detect and prevent the unauthorized extraction of sensitive data."
+  },
+  {
+    "id": "d4-029", "domain": "D4: ネットワークセキュリティ",
+    "term": "Microsegmentation", "term_en": "Microsegmentation",
+    "definition": "データセンター内でワークロードごとに細かくセキュリティポリシーを適用し、内部のラテラルムーブメントを制限する技術。",
+    "definition_en": "A security technique that enables fine-grained security policies assigned to data center applications, down to the workload level."
+  },
+  {
+    "id": "d4-030", "domain": "D4: ネットワークセキュリティ",
+    "term": "Bluejacking", "term_en": "Bluejacking",
+    "definition": "Bluetoothを利用して、範囲内のデバイスに迷惑な匿名メッセージを送信する攻撃。データの盗難は伴わない。",
+    "definition_en": "The sending of unsolicited messages over Bluetooth to Bluetooth-enabled devices."
   }
-]
