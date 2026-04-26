@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="CISSP">
+<title>CISSP Flashcards</title>
+<style>
+  body { font-family: -apple-system, sans-serif; display: flex; flex-direction: column; align-items: center; padding-top: 20px; background-color: #f4f4f9; margin: 0; }
+  .screen { width: 90vw; max-width: 400px; display: none; }
+  .screen.active { display: flex; flex-direction: column; align-items: center; }
+  .config-box { background: #fff; padding: 20px; border-radius: 12px; width: 100%; box-sizing: border-box; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+  .config-box h2 { font-size: 1.2em; margin-top: 0; color: #333; }
+  .domain-list { display: grid; grid-template-columns: 1fr; gap: 15px; margin-bottom: 20px; }
+  label { font-size: 1em; display: flex; align-items: center; gap: 10px; cursor: pointer; }
+  input[type="checkbox"] { transform: scale(1.5); }
+  button { width: 100%; padding: 15px; font-size: 1.1em; font-weight: bold; color: #fff; background-color: #007bff; border: none; border-radius: 8px; cursor: pointer; }
+  
+  .card { width: 100%; height: 250px; perspective: 1000px; margin-bottom: 20px; }
+  .card-inner { width: 100%; height: 100%; transition: transform 0.5s; transform-style: preserve-3d; position: relative; }
+  .card.flipped .card-inner { transform: rotateY(180deg); }
+  .card-face { width: 100%; height: 100%; position: absolute; backface-visibility: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; box-sizing: border-box; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); text-align: center; }
+  .card-front { background-color: #fff; color: #333; }
+  .card-back { background-color: #0056b3; color: #fff; transform: rotateY(180deg); }
+  .domain-tag { font-size: 0.8em; color: #666; margin-bottom: 10px; font-weight: bold; }
+  .term { font-size: 1.4em; font-weight: bold; }
+  .definition { font-size: 1.1em; line-height: 1.4; }
+  
+  .controls { display: flex; gap: 10px; width: 100%; }
+  .controls button { flex: 1; }
+  .btn-fail { background-color: #dc3545; }
+  .btn-success { background-color: #28a745; }
+  .status { font-size: 0.9em; color: #555; margin-bottom: 15px; font-weight: bold; }
+</style>
+</head>
+<body>
+  <div id="setup-screen" class="screen active">
+    <div class="config-box">
+      <h2>出題ドメイン選択</h2>
+      <div class="domain-list">
+        <label><input type="checkbox" class="domain-cb" value="domain1" checked> D1: セキュリティとリスク</label>
+        <label><input type="checkbox" class="domain-cb" value="domain2"> D2: 資産のセキュリティ</label>
+        <label><input type="checkbox" class="domain-cb" value="domain3"> D3: アーキテクチャとエンジニアリング</label>
+        <label><input type="checkbox" class="domain-cb" value="domain4"> D4: ネットワークセキュリティ</label>
+        <label><input type="checkbox" class="domain-cb" value="domain5"> D5: アイデンティティとアクセス管理</label>
+        <label><input type="checkbox" class="domain-cb" value="domain6"> D6: セキュリティの評価とテスト</label>
+        <label><input type="checkbox" class="domain-cb" value="domain7"> D7: セキュリティ運用</label>
+        <label><input type="checkbox" class="domain-cb" value="domain8"> D8: ソフトウェア開発セキュリティ</label>
+      </div>
+      <button onclick="startApp()">学習を開始する</button>
+    </div>
+  </div>
+
+  <div id="study-screen" class="screen">
+    <div class="status" id="status">準備中...</div>
+    <div class="card" id="flashcard">
+      <div class="card-inner">
+        <div class="card-face card-front">
+          <div class="domain-tag" id="domain-label">Domain</div>
+          <div class="term" id="term">Term</div>
+        </div>
+        <div class="card-face card-back">
+          <div class="definition" id="definition">Definition</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="controls" id="reveal-control">
+      <button onclick="showAnswer()">解答を表示</button>
+    </div>
+    <div class="controls" id="action-controls" style="display: none;">
+      <button class="btn-fail" onclick="recordResult(false)">忘れた</button>
+      <button class="btn-success" onclick="recordResult(true)">覚えた</button>
+    </div>
+  </div>
+
+  <script>
+    let deck = [];
+    let currentIndex = 0;
+    let stats = JSON.parse(localStorage.getItem('cissp_stats')) || {};
+
+    async function startApp() {
+      const checkboxes = document.querySelectorAll('.domain-cb:checked');
+      if (checkboxes.length === 0) {
+        alert('少なくとも1つのドメインを選択してください。');
+        return;
+      }
+
+      deck = [];
+      for (const cb of checkboxes) {
+        try {
+          // JSONファイルを非同期で取得
+          const response = await fetch(`${cb.value}.json`);
+          if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+          const data = await response.json();
+          deck = deck.concat(data);
+        } catch (error) {
+          console.warn(`${cb.value}.json の読み込みをスキップしました (ファイルが存在しないか、CORSエラーの可能性があります)`);
+        }
+      }
+
+      if (deck.length === 0) {
+        alert('問題データを読み込めませんでした。JSONファイルが正しい位置に配置されているか確認してください。');
+        return;
+      }
+
+      // 出題順のシャッフル
+      deck.sort(() => Math.random() - 0.5);
+      
+      document.getElementById('setup-screen').classList.remove('active');
+      document.getElementById('study-screen').classList.add('active');
+      
+      currentIndex = 0;
+      updateCard();
+    }
+
+    function updateCard() {
+      const card = deck[currentIndex];
+      document.getElementById('domain-label').innerText = card.domain;
+      document.getElementById('term').innerText = card.term;
+      document.getElementById('definition').innerText = card.definition;
+      
+      document.getElementById('flashcard').classList.remove('flipped');
+      document.getElementById('reveal-control').style.display = 'flex';
+      document.getElementById('action-controls').style.display = 'none';
+
+      const cardStat = stats[card.id] || { correct: 0, total: 0 };
+      const rate = cardStat.total > 0 ? Math.round((cardStat.correct / cardStat.total) * 100) : 0;
+      document.getElementById('status').innerText = `${currentIndex + 1} / ${deck.length}問 (過去正答率: ${rate}%)`;
+    }
+
+    function showAnswer() {
+      document.getElementById('flashcard').classList.add('flipped');
+      document.getElementById('reveal-control').style.display = 'none';
+      document.getElementById('action-controls').style.display = 'flex';
+    }
+
+    function recordResult(isCorrect) {
+      const cardId = deck[currentIndex].id;
+      if (!stats[cardId]) stats[cardId] = { correct: 0, total: 0 };
+      stats[cardId].total += 1;
+      if (isCorrect) stats[cardId].correct += 1;
+      
+      // 結果をローカルストレージへ保存
+      localStorage.setItem('cissp_stats', JSON.stringify(stats));
+      
+      currentIndex++;
+      if (currentIndex >= deck.length) {
+        alert('選択したドメインの学習が完了しました！');
+        location.reload(); // 最初からやり直すためにリロード
+      } else {
+        updateCard();
+      }
+    }
+  </script>
+</body>
+</html>
