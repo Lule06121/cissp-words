@@ -12,19 +12,23 @@
   .screen { width: 90vw; max-width: 400px; display: none; }
   .screen.active { display: flex; flex-direction: column; align-items: center; }
   
-  /* 共通UI */
   .box { background: #fff; padding: 20px; border-radius: 12px; width: 100%; box-sizing: border-box; box-shadow: 0 4px 8px rgba(0,0,0,0.1); text-align: center; }
   button { width: 100%; padding: 15px; font-size: 1.1em; font-weight: bold; color: #fff; background-color: #007bff; border: none; border-radius: 8px; cursor: pointer; margin-top: 10px;}
   .btn-fail { background-color: #dc3545; }
   .btn-success { background-color: #28a745; }
-  .btn-secondary { background-color: #6c757d; }
   
-  /* 設定画面 */
-  .domain-list { display: grid; grid-template-columns: 1fr; gap: 15px; margin-bottom: 20px; text-align: left;}
-  label { font-size: 1em; display: flex; align-items: center; gap: 10px; cursor: pointer; }
-  input[type="checkbox"] { transform: scale(1.5); }
+  .lang-switch { display: flex; justify-content: center; gap: 20px; margin-bottom: 20px; }
+  .lang-switch label { font-size: 1.1em; font-weight: bold; }
   
-  /* 学習画面 */
+  .section-title { font-weight: bold; margin-bottom: 10px; display: block; text-align: left; font-size: 1.1em; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+  
+  .option-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; text-align: left; }
+  .option-list label { font-size: 1em; display: flex; align-items: center; gap: 10px; cursor: pointer; }
+  input[type="checkbox"], input[type="radio"] { transform: scale(1.3); }
+  
+  .domain-list { display: grid; grid-template-columns: 1fr; gap: 12px; margin-bottom: 20px; text-align: left; }
+  .domain-list label { font-size: 0.95em; display: flex; align-items: center; gap: 10px; cursor: pointer; }
+  
   .header-controls { display: flex; justify-content: space-between; width: 100%; align-items: center; margin-bottom: 15px; }
   .status { font-size: 0.9em; color: #555; font-weight: bold; }
   .btn-quit { width: auto; padding: 8px 15px; font-size: 0.9em; margin-top: 0; background-color: #dc3545; }
@@ -34,40 +38,49 @@
   .card.flipped .card-inner { transform: rotateY(180deg); }
   .card-face { width: 100%; height: 100%; position: absolute; backface-visibility: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; box-sizing: border-box; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); text-align: center; }
   .card-front { background-color: #fff; color: #333; }
-  .card-back { background-color: #0056b3; color: #fff; transform: rotateY(180deg); }
+  .card-back { background-color: #0056b3; color: #fff; transform: rotateY(180deg); overflow-y: auto; }
   .domain-tag { font-size: 0.8em; color: #666; margin-bottom: 10px; font-weight: bold; }
   .term { font-size: 1.4em; font-weight: bold; }
-  .definition { font-size: 1.1em; line-height: 1.4; }
+  .definition { font-size: 1em; line-height: 1.4; }
   
   .controls { display: flex; gap: 10px; width: 100%; }
   .controls button { flex: 1; margin-top: 0; }
-
-  /* 結果画面 */
   .score-display { font-size: 1.5em; font-weight: bold; color: #0056b3; margin: 20px 0; }
 </style>
 </head>
 <body>
   <div id="setup-screen" class="screen active">
     <div class="box">
-      <h2 style="margin-top: 0;">出題ドメイン選択</h2>
-      <div class="domain-list">
-        <label><input type="checkbox" class="domain-cb" value="domain1" checked> D1: セキュリティとリスク</label>
-        <label><input type="checkbox" class="domain-cb" value="domain2"> D2: 資産のセキュリティ</label>
-        <label><input type="checkbox" class="domain-cb" value="domain3"> D3: アーキテクチャとエンジニアリング</label>
-        <label><input type="checkbox" class="domain-cb" value="domain4"> D4: ネットワークセキュリティ</label>
-        <label><input type="checkbox" class="domain-cb" value="domain5"> D5: アイデンティティとアクセス管理</label>
-        <label><input type="checkbox" class="domain-cb" value="domain6"> D6: セキュリティの評価とテスト</label>
-        <label><input type="checkbox" class="domain-cb" value="domain7"> D7: セキュリティ運用</label>
-        <label><input type="checkbox" class="domain-cb" value="domain8"> D8: ソフトウェア開発セキュリティ</label>
+      <div class="lang-switch">
+        <label><input type="radio" name="lang" value="ja" onchange="changeLang()"> 日本語</label>
+        <label><input type="radio" name="lang" value="en" onchange="changeLang()"> English</label>
       </div>
-      <button onclick="startApp()">学習を開始する</button>
+      
+      <span class="section-title" id="ui-mode-title">出題モード</span>
+      <div class="option-list">
+        <label><input type="radio" name="mode" value="all" checked> <span id="ui-mode-all">すべての問題</span></label>
+        <label><input type="radio" name="mode" value="weak"> <span id="ui-mode-weak">苦手・未学習のみ (正答率70%未満)</span></label>
+      </div>
+
+      <span class="section-title" id="ui-setup-title">出題ドメイン</span>
+      <div class="domain-list">
+        <label><input type="checkbox" class="domain-cb" value="domain1" checked> <span id="label-d1">D1: セキュリティとリスク</span></label>
+        <label><input type="checkbox" class="domain-cb" value="domain2"> <span id="label-d2">D2: 資産のセキュリティ</span></label>
+        <label><input type="checkbox" class="domain-cb" value="domain3"> <span id="label-d3">D3: アーキテクチャとエンジニアリング</span></label>
+        <label><input type="checkbox" class="domain-cb" value="domain4"> <span id="label-d4">D4: ネットワークセキュリティ</span></label>
+        <label><input type="checkbox" class="domain-cb" value="domain5"> <span id="label-d5">D5: アイデンティティとアクセス管理</span></label>
+        <label><input type="checkbox" class="domain-cb" value="domain6"> <span id="label-d6">D6: セキュリティの評価とテスト</span></label>
+        <label><input type="checkbox" class="domain-cb" value="domain7"> <span id="label-d7">D7: セキュリティ運用</span></label>
+        <label><input type="checkbox" class="domain-cb" value="domain8"> <span id="label-d8">D8: ソフトウェア開発セキュリティ</span></label>
+      </div>
+      <button id="ui-start-btn" onclick="startApp()">学習を開始する</button>
     </div>
   </div>
 
   <div id="study-screen" class="screen">
     <div class="header-controls">
       <div class="status" id="status">準備中...</div>
-      <button class="btn-quit" onclick="endSession()">終了する</button>
+      <button class="btn-quit" id="ui-quit-btn" onclick="endSession()">終了する</button>
     </div>
     
     <div class="card" id="flashcard">
@@ -83,52 +96,121 @@
     </div>
     
     <div class="controls" id="reveal-control">
-      <button onclick="showAnswer()">解答を表示</button>
+      <button id="ui-reveal-btn" onclick="showAnswer()">解答を表示</button>
     </div>
     <div class="controls" id="action-controls" style="display: none;">
-      <button class="btn-fail" onclick="recordResult(false)">忘れた</button>
-      <button class="btn-success" onclick="recordResult(true)">覚えた</button>
+      <button class="btn-fail" id="ui-fail-btn" onclick="recordResult(false)">忘れた</button>
+      <button class="btn-success" id="ui-success-btn" onclick="recordResult(true)">覚えた</button>
     </div>
   </div>
 
   <div id="result-screen" class="screen">
     <div class="box">
-      <h2>学習完了</h2>
-      <div class="score-display" id="score-display">0 / 0問 正解 (0%)</div>
-      <p>お疲れ様でした。</p>
-      <button onclick="backToTop()">トップへ戻る</button>
+      <h2 id="ui-result-title">学習完了</h2>
+      <div class="score-display" id="score-display">0 / 0</div>
+      <p id="ui-result-msg">お疲れ様でした。</p>
+      <button id="ui-back-btn" onclick="backToTop()">トップへ戻る</button>
     </div>
   </div>
 
   <script>
+    const uiDict = {
+      ja: {
+        modeTitle: "出題モード", modeAll: "すべての問題", modeWeak: "苦手・未学習のみ (正答率70%未満)",
+        setupTitle: "出題ドメイン", startBtn: "学習を開始する", quitBtn: "終了する",
+        revealBtn: "解答を表示", failBtn: "忘れた", successBtn: "覚えた",
+        resultTitle: "学習完了", resultMsg: "お疲れ様でした。", backBtn: "トップへ戻る",
+        d1: "D1: セキュリティとリスク", d2: "D2: 資産のセキュリティ",
+        d3: "D3: アーキテクチャとエンジニアリング", d4: "D4: ネットワークセキュリティ",
+        d5: "D5: アイデンティティとアクセス管理", d6: "D6: セキュリティの評価とテスト",
+        d7: "D7: セキュリティ運用", d8: "D8: ソフトウェア開発セキュリティ",
+        alertNoDomain: "ドメインを選択してください。", alertLoadFail: "問題データを読み込めませんでした。",
+        alertNoWeak: "対象ドメインに苦手・未学習の問題はありません。素晴らしいです！"
+      },
+      en: {
+        modeTitle: "Study Mode", modeAll: "All Questions", modeWeak: "Weak/Unlearned Only (< 70% Correct)",
+        setupTitle: "Domains", startBtn: "Start Learning", quitBtn: "Quit",
+        revealBtn: "Show Answer", failBtn: "Forgot", successBtn: "Remembered",
+        resultTitle: "Session Complete", resultMsg: "Good job!", backBtn: "Back to Top",
+        d1: "D1: Security & Risk", d2: "D2: Asset Security",
+        d3: "D3: Security Architecture", d4: "D4: Network Security",
+        d5: "D5: IAM", d6: "D6: Assessment & Testing",
+        d7: "D7: Security Operations", d8: "D8: Software Dev Security",
+        alertNoDomain: "Please select at least one domain.", alertLoadFail: "Failed to load question data.",
+        alertNoWeak: "No weak or unlearned questions found in the selected domains. Great job!"
+      }
+    };
+
     let deck = [];
     let currentIndex = 0;
     let stats = JSON.parse(localStorage.getItem('cissp_stats')) || {};
-    
-    // セッション（今回の学習）用のスコア記録
     let sessionCorrect = 0;
     let sessionAnswered = 0;
+    let currentLang = localStorage.getItem('cissp_lang') || 'ja';
+
+    function initLang() {
+      document.querySelector(`input[name="lang"][value="${currentLang}"]`).checked = true;
+      applyUIText();
+    }
+
+    function changeLang() {
+      currentLang = document.querySelector('input[name="lang"]:checked').value;
+      localStorage.setItem('cissp_lang', currentLang);
+      applyUIText();
+    }
+
+    function applyUIText() {
+      const dict = uiDict[currentLang];
+      document.getElementById('ui-mode-title').innerText = dict.modeTitle;
+      document.getElementById('ui-mode-all').innerText = dict.modeAll;
+      document.getElementById('ui-mode-weak').innerText = dict.modeWeak;
+      document.getElementById('ui-setup-title').innerText = dict.setupTitle;
+      document.getElementById('ui-start-btn').innerText = dict.startBtn;
+      document.getElementById('ui-quit-btn').innerText = dict.quitBtn;
+      document.getElementById('ui-reveal-btn').innerText = dict.revealBtn;
+      document.getElementById('ui-fail-btn').innerText = dict.failBtn;
+      document.getElementById('ui-success-btn').innerText = dict.successBtn;
+      document.getElementById('ui-result-title').innerText = dict.resultTitle;
+      document.getElementById('ui-result-msg').innerText = dict.resultMsg;
+      document.getElementById('ui-back-btn').innerText = dict.backBtn;
+      for (let i = 1; i <= 8; i++) {
+        document.getElementById(`label-d${i}`).innerText = dict[`d${i}`];
+      }
+    }
 
     async function startApp() {
       const checkboxes = document.querySelectorAll('.domain-cb:checked');
-      if (checkboxes.length === 0) return alert('少なくとも1つのドメインを選択してください。');
+      if (checkboxes.length === 0) return alert(uiDict[currentLang].alertNoDomain);
 
-      deck = [];
+      let rawDeck = [];
       for (const cb of checkboxes) {
         try {
           const response = await fetch(`${cb.value}.json`);
-          if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+          if (!response.ok) throw new Error();
           const data = await response.json();
-          deck = deck.concat(data);
+          rawDeck = rawDeck.concat(data);
         } catch (error) {
-          console.warn(`${cb.value}.json の読み込みをスキップしました`);
+          console.warn(`${cb.value}.json failed to load`);
         }
       }
 
-      if (deck.length === 0) return alert('問題データを読み込めませんでした。');
+      if (rawDeck.length === 0) return alert(uiDict[currentLang].alertLoadFail);
+
+      // 出題モードによるフィルタリング
+      const selectedMode = document.querySelector('input[name="mode"]:checked').value;
+      if (selectedMode === 'weak') {
+        deck = rawDeck.filter(card => {
+          const stat = stats[card.id];
+          // 未学習（記録なし）または正答率70%未満を抽出
+          if (!stat || stat.total === 0) return true;
+          return (stat.correct / stat.total) < 0.7;
+        });
+        if (deck.length === 0) return alert(uiDict[currentLang].alertNoWeak);
+      } else {
+        deck = rawDeck;
+      }
 
       deck.sort(() => Math.random() - 0.5);
-      
       sessionCorrect = 0;
       sessionAnswered = 0;
       currentIndex = 0;
@@ -139,15 +221,17 @@
 
     function updateCard() {
       const card = deck[currentIndex];
-      document.getElementById('domain-label').innerText = card.domain;
-      document.getElementById('term').innerText = card.term;
-      document.getElementById('definition').innerText = card.definition;
+      const displayTerm = currentLang === 'en' && card.term_en ? card.term_en : card.term;
+      const displayDef = currentLang === 'en' && card.definition_en ? card.definition_en : card.definition;
+      
+      document.getElementById('domain-label').innerText = currentLang === 'ja' ? uiDict.ja[`d${card.id.charAt(1)}`] : uiDict.en[`d${card.id.charAt(1)}`];
+      document.getElementById('term').innerText = displayTerm;
+      document.getElementById('definition').innerText = displayDef;
       
       document.getElementById('flashcard').classList.remove('flipped');
       document.getElementById('reveal-control').style.display = 'flex';
       document.getElementById('action-controls').style.display = 'none';
-
-      document.getElementById('status').innerText = `${currentIndex + 1} / ${deck.length}問`;
+      document.getElementById('status').innerText = `${currentIndex + 1} / ${deck.length}`;
     }
 
     function showAnswer() {
@@ -159,27 +243,22 @@
     function recordResult(isCorrect) {
       const cardId = deck[currentIndex].id;
       if (!stats[cardId]) stats[cardId] = { correct: 0, total: 0 };
-      
-      // 全体データの更新
       stats[cardId].total += 1;
       if (isCorrect) stats[cardId].correct += 1;
       localStorage.setItem('cissp_stats', JSON.stringify(stats));
       
-      // 今回のセッションデータの更新
       sessionAnswered++;
       if (isCorrect) sessionCorrect++;
       
       currentIndex++;
-      if (currentIndex >= deck.length) {
-        endSession();
-      } else {
-        updateCard();
-      }
+      if (currentIndex >= deck.length) endSession();
+      else updateCard();
     }
 
     function endSession() {
       const rate = sessionAnswered > 0 ? Math.round((sessionCorrect / sessionAnswered) * 100) : 0;
-      document.getElementById('score-display').innerText = `${sessionCorrect} / ${sessionAnswered}問 正解 (${rate}%)`;
+      const qText = currentLang === 'ja' ? '問 正解' : 'Correct';
+      document.getElementById('score-display').innerText = `${sessionCorrect} / ${sessionAnswered} ${qText} (${rate}%)`;
       switchScreen('result-screen');
     }
 
@@ -191,6 +270,8 @@
       document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
       document.getElementById(screenId).classList.add('active');
     }
+
+    initLang();
   </script>
 </body>
 </html>
