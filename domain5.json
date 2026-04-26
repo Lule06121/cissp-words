@@ -1,62 +1,122 @@
-[
+// domain5.json に追加するデータ (d5-011 〜 d5-030)
+  ,
   {
-    "id": "d5-001",
-    "domain": "D5: アイデンティティとアクセス管理 (IAM)",
-    "term": "Identification",
-    "definition": "ユーザーが誰であるかを主張すること（ID入力など）。"
+    "id": "d5-011", "domain": "D5: アイデンティティとアクセス管理",
+    "term": "Kerberos", "term_en": "Kerberos",
+    "definition": "KDC（キー配布センター）とチケットを用いて、ネットワーク上のユーザーとサービス間で安全な認証を行うプロトコル。",
+    "definition_en": "A network authentication protocol that uses tickets and a Key Distribution Center (KDC) to provide secure authentication."
   },
   {
-    "id": "d5-002",
-    "domain": "D5: アイデンティティとアクセス管理 (IAM)",
-    "term": "Authentication",
-    "definition": "主張された身元を確認すること（パスワードなど）。"
+    "id": "d5-012", "domain": "D5: アイデンティティとアクセス管理",
+    "term": "RADIUS", "term_en": "RADIUS",
+    "definition": "ネットワークアクセスのためのAAA（認証、認可、アカウンティング）を提供するUDPベースのプロトコル。パスワードのみ暗号化する。",
+    "definition_en": "A UDP-based networking protocol that provides centralized AAA management. Encrypts only the password."
   },
   {
-    "id": "d5-003",
-    "domain": "D5: アイデンティティとアクセス管理 (IAM)",
-    "term": "Authorization",
-    "definition": "許可されたリソースへのアクセス権を付与すること。"
+    "id": "d5-013", "domain": "D5: アイデンティティとアクセス管理",
+    "term": "TACACS+", "term_en": "TACACS+",
+    "definition": "Ciscoが開発したTCPベースのAAAプロトコル。パケット全体を暗号化し、認証・認可・アカウンティングを分離して処理できる。",
+    "definition_en": "A Cisco-developed, TCP-based AAA protocol that encrypts the entire payload and separates authentication, authorization, and accounting."
   },
   {
-    "id": "d5-004",
-    "domain": "D5: アイデンティティとアクセス管理 (IAM)",
-    "term": "Accounting",
-    "definition": "ユーザーの活動を記録し、監査可能にすること。"
+    "id": "d5-014", "domain": "D5: アイデンティティとアクセス管理",
+    "term": "OAuth 2.0", "term_en": "OAuth 2.0",
+    "definition": "ユーザーがパスワードを渡すことなく、あるアプリケーションが別のアプリケーションのデータにアクセスする権限を「認可」するプロトコル。",
+    "definition_en": "An authorization framework that enables applications to obtain limited access to user accounts on an HTTP service."
   },
   {
-    "id": "d5-005",
-    "domain": "D5: アイデンティティとアクセス管理 (IAM)",
-    "term": "MFA",
-    "definition": "多要素認証。知識、所有、存在の2つ以上を組み合わせる。"
+    "id": "d5-015", "domain": "D5: アイデンティティとアクセス管理",
+    "term": "OpenID Connect (OIDC)", "term_en": "OpenID Connect (OIDC)",
+    "definition": "OAuth 2.0の上に構築された「認証」プロトコル。ユーザーの身元確認を行い、IDトークン（JWT）を発行する。",
+    "definition_en": "An authentication layer on top of OAuth 2.0, allowing clients to verify the identity of the end-user."
   },
   {
-    "id": "d5-006",
-    "domain": "D5: アイデンティティとアクセス管理 (IAM)",
-    "term": "SSO",
-    "definition": "シングルサインオン。1回のログインで複数システムを利用。"
+    "id": "d5-016", "domain": "D5: アイデンティティとアクセス管理",
+    "term": "FAR", "term_en": "False Acceptance Rate (FAR)",
+    "definition": "生体認証において、誤って未登録のユーザーを「本人」として認証してしまう確率（Type IIエラー）。",
+    "definition_en": "The rate at which a biometric system incorrectly authenticates an unauthorized user (Type II error)."
   },
   {
-    "id": "d5-007",
-    "domain": "D5: アイデンティティとアクセス管理 (IAM)",
-    "term": "SAML",
-    "definition": "XMLベースの認証・認可情報の交換プロトコル。"
+    "id": "d5-017", "domain": "D5: アイデンティティとアクセス管理",
+    "term": "FRR", "term_en": "False Rejection Rate (FRR)",
+    "definition": "生体認証において、誤って正規のユーザーを「他人」として拒否してしまう確率（Type Iエラー）。",
+    "definition_en": "The rate at which a biometric system incorrectly rejects an authorized user (Type I error)."
   },
   {
-    "id": "d5-008",
-    "domain": "D5: アイデンティティとアクセス管理 (IAM)",
-    "term": "OAuth",
-    "definition": "認可の委譲のための標準プロトコル。"
+    "id": "d5-018", "domain": "D5: アイデンティティとアクセス管理",
+    "term": "CER", "term_en": "Crossover Error Rate (CER)",
+    "definition": "FARとFRRが交差する（等しくなる）ポイント。この値が低いほど、生体認証システムの精度が高いことを示す。",
+    "definition_en": "The point where FAR and FRR are equal. A lower CER indicates a more accurate biometric system."
   },
   {
-    "id": "d5-009",
-    "domain": "D5: アイデンティティとアクセス管理 (IAM)",
-    "term": "RBAC",
-    "definition": "ロールベースアクセス制御。役割に基づき権限付与。"
+    "id": "d5-019", "domain": "D5: アイデンティティとアクセス管理",
+    "term": "ABAC", "term_en": "Attribute-Based Access Control (ABAC)",
+    "definition": "ユーザー、リソース、環境の「属性（時間、場所、役職など）」を組み合わせて動的にアクセス制御を行う方式。",
+    "definition_en": "An access control model that grants access based on attributes assigned to subjects, objects, and the environment."
   },
   {
-    "id": "d5-010",
-    "domain": "D5: アイデンティティとアクセス管理 (IAM)",
-    "term": "MAC",
-    "definition": "強制アクセス制御。ラベルに基づきシステムが決定。"
+    "id": "d5-020", "domain": "D5: アイデンティティとアクセス管理",
+    "term": "DAC", "term_en": "Discretionary Access Control (DAC)",
+    "definition": "データ所有者の裁量によってアクセス権を付与・制御する方式。柔軟だがセキュリティレベルは管理者に依存する。",
+    "definition_en": "An access control model where the resource owner dictates who has access and what privileges they have."
+  },
+  {
+    "id": "d5-021", "domain": "D5: アイデンティティとアクセス管理",
+    "term": "MAC", "term_en": "Mandatory Access Control (MAC)",
+    "definition": "システム（OS等）がセキュリティラベルとクリアランスに基づいて強制的にアクセスを制御する方式。軍事機関などで使用。",
+    "definition_en": "An access control model where the system enforces access based on security labels and clearances, preventing owner discretion."
+  },
+  {
+    "id": "d5-022", "domain": "D5: アイデンティティとアクセス管理",
+    "term": "Federated Identity", "term_en": "Federated Identity",
+    "definition": "異なる組織のドメイン間で信頼関係を結び、共通のIDを用いてシステムを利用できるようにする仕組み。",
+    "definition_en": "An agreement between multiple enterprises to let users use the same identification data to obtain access to the networks of all enterprises."
+  },
+  {
+    "id": "d5-023", "domain": "D5: アイデンティティとアクセス管理",
+    "term": "Identity Provisioning", "term_en": "Identity Provisioning",
+    "definition": "ユーザーアカウントの作成、権限の割り当て、およびライフサイクル（入社から退職まで）を管理するプロセス。",
+    "definition_en": "The process of creating, maintaining, and deactivating user accounts and access rights across IT systems."
+  },
+  {
+    "id": "d5-024", "domain": "D5: アイデンティティとアクセス管理",
+    "term": "Credential Stuffing", "term_en": "Credential Stuffing",
+    "definition": "別のサービスから流出したIDとパスワードのリストを使用し、他のWebサイトに自動化された不正ログインを試みる攻撃。",
+    "definition_en": "An attack where compromised credentials from one breach are used to automate login attempts on other services."
+  },
+  {
+    "id": "d5-025", "domain": "D5: アイデンティティとアクセス管理",
+    "term": "LDAP", "term_en": "Lightweight Directory Access Protocol (LDAP)",
+    "definition": "ネットワーク上のディレクトリサービス（Active Directoryなど）にアクセスし、情報を検索・変更するためのプロトコル。",
+    "definition_en": "An open protocol for accessing and maintaining distributed directory information services over an IP network."
+  },
+  {
+    "id": "d5-026", "domain": "D5: アイデンティティとアクセス管理",
+    "term": "SSO", "term_en": "Single Sign-On (SSO)",
+    "definition": "一度の認証プロセスで、関連する複数の独立したソフトウェアシステムへのアクセスを許可する仕組み。",
+    "definition_en": "An authentication scheme that allows a user to log in with a single ID and password to any of several related systems."
+  },
+  {
+    "id": "d5-027", "domain": "D5: アイデンティティとアクセス管理",
+    "term": "MFA", "term_en": "Multi-Factor Authentication (MFA)",
+    "definition": "知識（パスワード）、所有（スマホ・トークン）、生体（指紋）のうち、2つ以上の異なる要素を組み合わせて行う認証。",
+    "definition_en": "An authentication method that requires two or more independent credentials (knowledge, possession, inherence)."
+  },
+  {
+    "id": "d5-028", "domain": "D5: アイデンティティとアクセス管理",
+    "term": "Password Vault", "term_en": "Password Vault",
+    "definition": "多数のパスワードを安全に保存・管理するための暗号化されたデータベース。特権ID管理（PAM）の基盤。",
+    "definition_en": "An encrypted database used to securely store and manage passwords, often forming the core of Privileged Access Management."
+  },
+  {
+    "id": "d5-029", "domain": "D5: アイデンティティとアクセス管理",
+    "term": "Separation of Duties", "term_en": "Separation of Duties (SoD)",
+    "definition": "単独の人物が不正や致命的なミスを行えないよう、重要なタスクを複数のプロセスや人物に分割する原則。",
+    "definition_en": "The principle of dividing a task among multiple people to prevent fraud and errors."
+  },
+  {
+    "id": "d5-030", "domain": "D5: アイデンティティとアクセス管理",
+    "term": "Least Privilege", "term_en": "Least Privilege",
+    "definition": "ユーザーやプロセスに対して、業務遂行に必要最低限の権限とアクセス権のみを付与する原則。",
+    "definition_en": "The practice of limiting access rights for users to the bare minimum permissions they need to perform their work."
   }
-]

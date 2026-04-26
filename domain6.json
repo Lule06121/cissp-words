@@ -1,62 +1,122 @@
-[
+// domain6.json に追加するデータ (d6-011 〜 d6-030)
+  ,
   {
-    "id": "d6-001",
-    "domain": "D6: セキュリティの評価とテスト",
-    "term": "Vulnerability Assessment",
-    "definition": "システムの脆弱性を特定・評価するプロセス。"
+    "id": "d6-011", "domain": "D6: セキュリティの評価とテスト",
+    "term": "SAST", "term_en": "Static Application Security Testing (SAST)",
+    "definition": "ソースコードやバイナリを実行せずに解析し、セキュリティ上の脆弱性を特定するホワイトボックステスト手法。",
+    "definition_en": "A white-box testing method that analyzes source code or binaries without executing the program to find security vulnerabilities."
   },
   {
-    "id": "d6-002",
-    "domain": "D6: セキュリティの評価とテスト",
-    "term": "Penetration Testing",
-    "definition": "疑似攻撃により防御の有効性をテストする。"
+    "id": "d6-012", "domain": "D6: セキュリティの評価とテスト",
+    "term": "DAST", "term_en": "Dynamic Application Security Testing (DAST)",
+    "definition": "実行中のアプリケーションに対して外部から疑似攻撃を行い、脆弱性を特定するブラックボックステスト手法。",
+    "definition_en": "A black-box testing method that interacts with a running application from the outside to identify vulnerabilities."
   },
   {
-    "id": "d6-003",
-    "domain": "D6: セキュリティの評価とテスト",
-    "term": "Zero-Knowledge Testing",
-    "definition": "ブラックボックステスト。情報なしで実施。"
+    "id": "d6-013", "domain": "D6: セキュリティの評価とテスト",
+    "term": "Fuzzing", "term_en": "Fuzzing",
+    "definition": "無効、予期しない、またはランダムなデータをソフトウェアの入力として大量に送り込み、クラッシュや予期せぬ挙動を誘発させるテスト。",
+    "definition_en": "A testing technique that involves inputting massive amounts of random or invalid data to software to trigger crashes or errors."
   },
   {
-    "id": "d6-004",
-    "domain": "D6: セキュリティの評価とテスト",
-    "term": "Full-Knowledge Testing",
-    "definition": "ホワイトボックステスト。全情報を得て実施。"
+    "id": "d6-014", "domain": "D6: セキュリティの評価とテスト",
+    "term": "Penetration Testing", "term_en": "Penetration Testing",
+    "definition": "専門家が攻撃者の視点でシステムへの侵入を試み、防御策の有効性を総合的に評価する能動的なテスト。",
+    "definition_en": "An authorized simulated attack on a computer system performed to evaluate the security of the system."
   },
   {
-    "id": "d6-005",
-    "domain": "D6: セキュリティの評価とテスト",
-    "term": "Log Review",
-    "definition": "ログを定期的に確認し、異常を検知すること。"
+    "id": "d6-015", "domain": "D6: セキュリティの評価とテスト",
+    "term": "Vulnerability Scanning", "term_en": "Vulnerability Scanning",
+    "definition": "自動化されたツールを使用し、システムやネットワークに既知の脆弱性（パッチ未適用など）がないかを網羅的に検査すること。",
+    "definition_en": "The use of automated tools to systematically identify known security vulnerabilities in systems and networks."
   },
   {
-    "id": "d6-006",
-    "domain": "D6: セキュリティの評価とテスト",
-    "term": "Audit",
-    "definition": "基準に適合しているかを独立した立場で評価。"
+    "id": "d6-016", "domain": "D6: セキュリティの評価とテスト",
+    "term": "SOC 1", "term_en": "SOC 1 Report",
+    "definition": "受託会社の内部統制のうち、委託元の「財務報告」に影響を与える可能性のある管理策を評価した監査報告書。",
+    "definition_en": "An audit report on controls at a service organization relevant to the user entities' internal control over financial reporting."
   },
   {
-    "id": "d6-007",
-    "domain": "D6: セキュリティの評価とテスト",
-    "term": "Fuzzing",
-    "definition": "無効なデータやランダムな値を入力して挙動を確認。"
+    "id": "d6-017", "domain": "D6: セキュリティの評価とテスト",
+    "term": "SOC 2", "term_en": "SOC 2 Report",
+    "definition": "セキュリティ、可用性、処理の完全性、機密性、プライバシーの5つのトラストサービス原則に基づく内部統制の評価報告書。",
+    "definition_en": "A report evaluating a service organization's controls based on Security, Availability, Processing Integrity, Confidentiality, and Privacy."
   },
   {
-    "id": "d6-008",
-    "domain": "D6: セキュリティの評価とテスト",
-    "term": "Code Review",
-    "definition": "ソースコードを直接確認し、欠陥を見つける。"
+    "id": "d6-018", "domain": "D6: セキュリティの評価とテスト",
+    "term": "Synthetic Transactions", "term_en": "Synthetic Transactions",
+    "definition": "監視ツールが定期的にダミーのユーザートランザクションを実行し、システムの可用性やパフォーマンスを評価する手法。",
+    "definition_en": "Simulated user behavior executed by monitoring tools to measure application performance and availability."
   },
   {
-    "id": "d6-009",
-    "domain": "D6: セキュリティの評価とテスト",
-    "term": "Regression Testing",
-    "definition": "変更後に既存機能に影響がないか確認する。"
+    "id": "d6-019", "domain": "D6: セキュリティの評価とテスト",
+    "term": "RUM", "term_en": "Real User Monitoring (RUM)",
+    "definition": "実際のユーザーがアプリケーションを操作した際のパフォーマンスデータ（ロード時間など）を収集し、評価する受動的な監視手法。",
+    "definition_en": "A passive monitoring technique that captures and analyzes every transaction of real users interacting with an application."
   },
   {
-    "id": "d6-010",
-    "domain": "D6: セキュリティの評価とテスト",
-    "term": "Synthetic Transactions",
-    "definition": "模擬操作を行い、アプリの可用性や応答を確認。"
+    "id": "d6-020", "domain": "D6: セキュリティの評価とテスト",
+    "term": "Code Review", "term_en": "Code Review",
+    "definition": "開発者が記述したソースコードを他の開発者やセキュリティ担当者が目視で確認し、論理的欠陥や脆弱性を発見する手法。",
+    "definition_en": "A manual examination of source code by developers or security experts to find logical errors and vulnerabilities."
+  },
+  {
+    "id": "d6-021", "domain": "D6: セキュリティの評価とテスト",
+    "term": "Threat Hunting", "term_en": "Threat Hunting",
+    "definition": "既存のセキュリティ対策をすり抜けてネットワーク内に潜伏している高度な脅威を、能動的・反復的に探索するプロセス。",
+    "definition_en": "The proactive and iterative process of searching networks to detect and isolate advanced threats that evade existing security solutions."
+  },
+  {
+    "id": "d6-022", "domain": "D6: セキュリティの評価とテスト",
+    "term": "Log Review", "term_en": "Log Review",
+    "definition": "システムやアプリケーションのログ記録を定期的に分析し、異常やポリシー違反、セキュリティインシデントの兆候を検知すること。",
+    "definition_en": "The regular analysis of system and application logs to detect anomalies, policy violations, or security incidents."
+  },
+  {
+    "id": "d6-023", "domain": "D6: セキュリティの評価とテスト",
+    "term": "Misuse Case Testing", "term_en": "Misuse Case Testing",
+    "definition": "攻撃者がシステムをどのように悪用するか（負のユースケース）を想定し、システムが適切に防御・対応できるかを検証するテスト。",
+    "definition_en": "Testing based on use cases that describe how a system shouldn't be used, typically by a malicious actor."
+  },
+  {
+    "id": "d6-024", "domain": "D6: セキュリティの評価とテスト",
+    "term": "KPI", "term_en": "Key Performance Indicator (KPI)",
+    "definition": "セキュリティプロセスやシステムが、目標に対してどれだけ効果的かつ効率的に機能しているかを測定する定量的な指標。",
+    "definition_en": "Quantifiable measures used to evaluate the success of a security process or system in meeting objectives for performance."
+  },
+  {
+    "id": "d6-025", "domain": "D6: セキュリティの評価とテスト",
+    "term": "KRI", "term_en": "Key Risk Indicator (KRI)",
+    "definition": "組織が直面しているリスクの発生可能性や影響度が、受容不可能なレベルに近づいていることを早期に警告する指標。",
+    "definition_en": "Metrics used by organizations to provide an early signal of increasing risk exposures in various areas of the enterprise."
+  },
+  {
+    "id": "d6-026", "domain": "D6: セキュリティの評価とテスト",
+    "term": "Black Box Testing", "term_en": "Black Box Testing",
+    "definition": "テスターが対象システムの内部構造やソースコードの事前知識を持たず、外部からの入力と出力のみで評価するテスト。",
+    "definition_en": "A testing method where the tester has no prior knowledge of the internal workings or source code of the system."
+  },
+  {
+    "id": "d6-027", "domain": "D6: セキュリティの評価とテスト",
+    "term": "White Box Testing", "term_en": "White Box Testing",
+    "definition": "テスターが対象システムの内部構造、ソースコード、設計書などの完全な情報を持った状態で実施する包括的なテスト。",
+    "definition_en": "A testing method where the tester has full knowledge of the internal structure, source code, and architecture of the system."
+  },
+  {
+    "id": "d6-028", "domain": "D6: セキュリティの評価とテスト",
+    "term": "Gray Box Testing", "term_en": "Gray Box Testing",
+    "definition": "テスターがユーザーアカウントや一部のアーキテクチャ情報など、部分的な知識を持った状態で実施するテスト手法。",
+    "definition_en": "A testing method where the tester has partial knowledge of the internal structure, simulating an insider threat or compromised account."
+  },
+  {
+    "id": "d6-029", "domain": "D6: セキュリティの評価とテスト",
+    "term": "Bug Bounty", "term_en": "Bug Bounty Program",
+    "definition": "組織が外部のセキュリティ研究者に対して、自社システムの脆弱性を発見・報告した対価として報奨金を支払う制度。",
+    "definition_en": "A program offered by organizations to reward external individuals for finding and reporting software bugs or vulnerabilities."
+  },
+  {
+    "id": "d6-030", "domain": "D6: セキュリティの評価とテスト",
+    "term": "Security Audit", "term_en": "Security Audit",
+    "definition": "組織のセキュリティ管理策や運用が、特定の基準（ISO 27001、内部ポリシーなど）に準拠しているかを客観的に評価すること。",
+    "definition_en": "An independent, systematic evaluation of an organization's security posture against established criteria or policies."
   }
-]
