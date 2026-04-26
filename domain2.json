@@ -1,0 +1,302 @@
+[
+  {
+    "id": "d2-001",
+    "domain": "D2: 資産のセキュリティ",
+    "term": "Data Classification",
+    "definition": "機密性に基づいてデータを分類（極秘、秘密、社外秘、公開など）。"
+  },
+  {
+    "id": "d2-002",
+    "domain": "D2: 資産のセキュリティ",
+    "term": "Data Labeling",
+    "definition": "分類したデータに対し、識別可能なラベルを付与すること。"
+  },
+  {
+    "id": "d2-003",
+    "domain": "D2: 資産のセキュリティ",
+    "term": "Data Owner",
+    "definition": "データ所有者。分類の決定や保護要件の定義に最終責任を持つ。"
+  },
+  {
+    "id": "d2-004",
+    "domain": "D2: 資産のセキュリティ",
+    "term": "Data Custodian",
+    "definition": "データ保管者。所有者の指示に従い、技術的な保護（バックアップ等）を行う。"
+  },
+  {
+    "id": "d2-005",
+    "domain": "D2: 資産のセキュリティ",
+    "term": "Data Controller",
+    "definition": "データ管理者(GDPR)。個人データの収集・処理の目的を決定する。"
+  },
+  {
+    "id": "d2-006",
+    "domain": "D2: 資産のセキュリティ",
+    "term": "Data Processor",
+    "definition": "データ処理者(GDPR)。管理者に代わって個人データを処理する。"
+  },
+  {
+    "id": "d2-007",
+    "domain": "D2: 資産のセキュリティ",
+    "term": "Data at Rest",
+    "definition": "保存されているデータ。ストレージ上の暗号化などが重要。"
+  },
+  {
+    "id": "d2-008",
+    "domain": "D2: 資産のセキュリティ",
+    "term": "Data in Transit",
+    "definition": "送信中のデータ。SSL/TLSなどのプロトコルで保護。"
+  },
+  {
+    "id": "d2-009",
+    "domain": "D2: 資産のセキュリティ",
+    "term": "Data in Use",
+    "definition": "使用中のデータ。メモリやCPU内のデータ保護。"
+  },
+  {
+    "id": "d2-010",
+    "domain": "D2: 資産のセキュリティ",
+    "term": "Remanence",
+    "definition": "残留データ。消去後にメディアに残っているデータ。"
+  },
+  {
+    "id": "d2-011",
+    "domain": "D2: 資産のセキュリティ",
+    "term": "Degaussing",
+    "definition": "消去（デガウス）。強力な磁気で磁気メディアのデータを破壊する。"
+  },
+  {
+    "id": "d2-012",
+    "domain": "D2: 資産のセキュリティ",
+    "term": "Purging",
+    "definition": "抹消。高度な技術でも復元不可能な状態にすること。"
+  },
+  {
+    "id": "d2-013",
+    "domain": "D2: 資産のセキュリティ",
+    "term": "Clearing",
+    "definition": "消去。標準的なツールで復元不可能な状態にすること。"
+  },
+  {
+    "id": "d2-014",
+    "domain": "D2: 資産のセキュリティ",
+    "term": "Destruction",
+    "definition": "物理的破壊。シュレッダーや粉砕によるメディアの破壊。"
+  },
+  {
+    "id": "d2-015",
+    "domain": "D2: 資産のセキュリティ",
+    "term": "Cryptographic Erase (Crypto Erase)",
+    "definition": "暗号化キーを破棄することでデータを実質的に消去する方法。"
+  },
+  {
+    "id": "d2-016",
+    "domain": "D2: 資産のセキュリティ",
+    "term": "Data Privacy",
+    "definition": "データプライバシー。個人情報の収集・利用・共有の制御。"
+  },
+  {
+    "id": "d2-017",
+    "domain": "D2: 資産のセキュリティ",
+    "term": "PII",
+    "definition": "個人を特定できる情報 (Personally Identifiable Information)。"
+  },
+  {
+    "id": "d2-018",
+    "domain": "D2: 資産のセキュリティ",
+    "term": "PHI",
+    "definition": "保護されるべき健康情報 (Protected Health Information)。"
+  },
+  {
+    "id": "d2-019",
+    "domain": "D2: 資産のセキュリティ",
+    "term": "Data Retention Policy",
+    "definition": "データ保持ポリシー。データの保管期間と廃棄時期を定めたもの。"
+  },
+  {
+    "id": "d2-020",
+    "domain": "D2: 資産のセキュリティ",
+    "term": "Media Sanitization",
+    "definition": "メディアのサニタイジング。残留データの漏洩を防ぐプロセス。"
+  },
+  {
+    "id": "d2-021",
+    "domain": "D2: 資産のセキュリティ",
+    "term": "Asset Inventory",
+    "definition": "資産目録。管理対象となるすべての資産のリスト。"
+  },
+  {
+    "id": "d2-022",
+    "domain": "D2: 資産のセキュリティ",
+    "term": "Inventory Management",
+    "definition": "資産のライフサイクル全体を管理すること。"
+  },
+  {
+    "id": "d2-023",
+    "domain": "D2: 資産のセキュリティ",
+    "term": "Baselines",
+    "definition": "ベースライン。最低限満たすべきセキュリティ基準。"
+  },
+  {
+    "id": "d2-024",
+    "domain": "D2: 資産のセキュリティ",
+    "term": "Scoping",
+    "definition": "特定のシステムに適用するセキュリティ管理策の範囲を決定すること。"
+  },
+  {
+    "id": "d2-025",
+    "domain": "D2: 資産のセキュリティ",
+    "term": "Tailoring",
+    "definition": "ベースライン管理策を特定の環境に合わせて調整すること。"
+  },
+  {
+    "id": "d2-026",
+    "domain": "D2: 資産のセキュリティ",
+    "term": "DRM",
+    "definition": "デジタル著作権管理。著作物の不正コピーや利用を制限する技術。"
+  },
+  {
+    "id": "d2-027",
+    "domain": "D2: 資産のセキュリティ",
+    "term": "DLP",
+    "definition": "データ流出防止 (Data Loss Prevention)。機密データの漏洩を検知・阻止。"
+  },
+  {
+    "id": "d2-028",
+    "domain": "D2: 資産のセキュリティ",
+    "term": "Information Life Cycle",
+    "definition": "作成、保存、使用、共有、アーカイブ、破棄のサイクル。"
+  },
+  {
+    "id": "d2-029",
+    "domain": "D2: 資産のセキュリティ",
+    "term": "CASB",
+    "definition": "クラウドアクセスセキュリティブローカー。クラウド利用を可視化・制御。"
+  },
+  {
+    "id": "d2-030",
+    "domain": "D2: 資産のセキュリティ",
+    "term": "Watermarking",
+    "definition": "電子透かし。データに著作権情報などを埋め込む技術。"
+  },
+  {
+    "id": "d2-031",
+    "domain": "D2: 資産のセキュリティ",
+    "term": "Encryption",
+    "definition": "暗号化。データを読み取り不可能な形式に変換すること。"
+  },
+  {
+    "id": "d2-032",
+    "domain": "D2: 資産のセキュリティ",
+    "term": "Symmetric Encryption",
+    "definition": "共通鍵暗号。暗号化と復号に同じ鍵を使用。"
+  },
+  {
+    "id": "d2-033",
+    "domain": "D2: 資産のセキュリティ",
+    "term": "Asymmetric Encryption",
+    "definition": "公開鍵暗号。暗号化と復号に異なる鍵（公開鍵・秘密鍵）を使用。"
+  },
+  {
+    "id": "d2-034",
+    "domain": "D2: 資産のセキュリティ",
+    "term": "Full Disk Encryption (FDE)",
+    "definition": "ディスク全体を暗号化して紛失時のデータ流出を防ぐ。"
+  },
+  {
+    "id": "d2-035",
+    "domain": "D2: 資産のセキュリティ",
+    "term": "Metadata",
+    "definition": "データに関するデータ。作成者、更新日時、分類情報など。"
+  },
+  {
+    "id": "d2-036",
+    "domain": "D2: 資産のセキュリティ",
+    "term": "Link Encryption",
+    "definition": "リンク暗号化。通信経路上のすべてのデータを暗号化。"
+  },
+  {
+    "id": "d2-037",
+    "domain": "D2: 資産のセキュリティ",
+    "term": "End-to-End Encryption",
+    "definition": "エンドツーエンド暗号化。送信元から宛先まで暗号化を維持。"
+  },
+  {
+    "id": "d2-038",
+    "domain": "D2: 資産のセキュリティ",
+    "term": "Steganography",
+    "definition": "ステガノグラフィ。画像や音声の中にデータを隠す技術。"
+  },
+  {
+    "id": "d2-039",
+    "domain": "D2: 資産のセキュリティ",
+    "term": "Hardware Security Module (HSM)",
+    "definition": "暗号鍵を安全に生成・管理・保管する専用デバイス。"
+  },
+  {
+    "id": "d2-040",
+    "domain": "D2: 資産のセキュリティ",
+    "term": "TPM",
+    "definition": "Trusted Platform Module。PCに搭載されるセキュリティチップ。"
+  },
+  {
+    "id": "d2-041",
+    "domain": "D2: 資産のセキュリティ",
+    "term": "Zoning",
+    "definition": "ゾーニング。重要度に応じてネットワークや物理区画を分けること。"
+  },
+  {
+    "id": "d2-042",
+    "domain": "D2: 資産のセキュリティ",
+    "term": "Air Gap",
+    "definition": "エアギャップ。ネットワークから物理的に隔離された環境。"
+  },
+  {
+    "id": "d2-043",
+    "domain": "D2: 資産のセキュリティ",
+    "term": "SSD Sanitization",
+    "definition": "SSDの消去。HDDとは異なる特性（ウェアレベリング）を考慮。"
+  },
+  {
+    "id": "d2-044",
+    "domain": "D2: 資産のセキュリティ",
+    "term": "Data Aggregation",
+    "definition": "データ集約。複数の情報から機密性の高い情報を推測されるリスク。"
+  },
+  {
+    "id": "d2-045",
+    "domain": "D2: 資産のセキュリティ",
+    "term": "Data Inference",
+    "definition": "データ推論。非機密情報から機密情報を導き出すこと。"
+  },
+  {
+    "id": "d2-046",
+    "domain": "D2: 資産のセキュリティ",
+    "term": "Pseudonymization",
+    "definition": "仮名化。識別子を別の値に置き換え、追加情報なしに特定不可にする。"
+  },
+  {
+    "id": "d2-047",
+    "domain": "D2: 資産のセキュリティ",
+    "term": "Anonymization",
+    "definition": "匿名化。完全に個人を特定できない状態にすること。"
+  },
+  {
+    "id": "d2-048",
+    "domain": "D2: 資産のセキュリティ",
+    "term": "Cloud Storage Security",
+    "definition": "クラウド上のデータに対する暗号化、アクセス制御、冗長性。"
+  },
+  {
+    "id": "d2-049",
+    "domain": "D2: 資産のセキュリティ",
+    "term": "Backup Management",
+    "definition": "定期的なバックアップとリストアテストの実施。"
+  },
+  {
+    "id": "d2-050",
+    "domain": "D2: 資産のセキュリティ",
+    "term": "Quality Assurance (QA)",
+    "definition": "資産の品質とセキュリティ要件が満たされているかの保証。"
+  }
+]

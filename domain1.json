@@ -1,0 +1,302 @@
+[
+  {
+    "id": "d1-001",
+    "domain": "D1: セキュリティとリスクマネジメント",
+    "term": "CIA Triad",
+    "definition": "機密性(Confidentiality)、完全性(Integrity)、可用性(Availability)の3要素。"
+  },
+  {
+    "id": "d1-002",
+    "domain": "D1: セキュリティとリスクマネジメント",
+    "term": "Due Care",
+    "definition": "特定の状況で、理識ある人が通常行うべき注意義務。行動そのものを指す。"
+  },
+  {
+    "id": "d1-003",
+    "domain": "D1: セキュリティとリスクマネジメント",
+    "term": "Due Diligence",
+    "definition": "注意義務が果たされているかを確認するための調査・検証活動。"
+  },
+  {
+    "id": "d1-004",
+    "domain": "D1: セキュリティとリスクマネジメント",
+    "term": "SLE",
+    "definition": "単一損失予想額 (Single Loss Expectancy)。資産価値 × 暴露係数。"
+  },
+  {
+    "id": "d1-005",
+    "domain": "D1: セキュリティとリスクマネジメント",
+    "term": "ARO",
+    "definition": "年間発生頻度 (Annualized Rate of Occurrence)。脅威が1年に発生する回数。"
+  },
+  {
+    "id": "d1-006",
+    "domain": "D1: セキュリティとリスクマネジメント",
+    "term": "ALE",
+    "definition": "年間損失予想額 (Annualized Loss Expectancy)。SLE × ARO。"
+  },
+  {
+    "id": "d1-007",
+    "domain": "D1: セキュリティとリスクマネジメント",
+    "term": "Risk Appetite",
+    "definition": "組織が目的達成のために許容できるリスクの総量。"
+  },
+  {
+    "id": "d1-008",
+    "domain": "D1: セキュリティとリスクマネジメント",
+    "term": "Risk Tolerance",
+    "definition": "特定のリスクに対して許容できる具体的な変動幅。"
+  },
+  {
+    "id": "d1-009",
+    "domain": "D1: セキュリティとリスクマネジメント",
+    "term": "BCP",
+    "definition": "事業継続計画 (Business Continuity Plan)。災害時に事業を継続するための計画。"
+  },
+  {
+    "id": "d1-010",
+    "domain": "D1: セキュリティとリスクマネジメント",
+    "term": "BIA",
+    "definition": "ビジネスインパクト分析。事業中断の影響を評価し、復旧優先順位を決定する。"
+  },
+  {
+    "id": "d1-011",
+    "domain": "D1: セキュリティとリスクマネジメント",
+    "term": "RTO",
+    "definition": "目標復旧時間。システム停止から復旧までの目標値。"
+  },
+  {
+    "id": "d1-012",
+    "domain": "D1: セキュリティとリスクマネジメント",
+    "term": "RPO",
+    "definition": "目標復旧時点。どの時点のデータまで復旧させるかの目標値。"
+  },
+  {
+    "id": "d1-013",
+    "domain": "D1: セキュリティとリスクマネジメント",
+    "term": "MTD",
+    "definition": "最大許容停止時間。事業が存続できなくなる限界の時間。"
+  },
+  {
+    "id": "d1-014",
+    "domain": "D1: セキュリティとリスクマネジメント",
+    "term": "Administrative Controls",
+    "definition": "管理上の統制。ポリシー、手順、トレーニングなど。"
+  },
+  {
+    "id": "d1-015",
+    "domain": "D1: セキュリティとリスクマネジメント",
+    "term": "Technical Controls",
+    "definition": "技術的統制。ファイアウォール、暗号化、IDSなど。"
+  },
+  {
+    "id": "d1-016",
+    "domain": "D1: セキュリティとリスクマネジメント",
+    "term": "Physical Controls",
+    "definition": "物理的統制。フェンス、鍵、監視カメラ、警備員。"
+  },
+  {
+    "id": "d1-017",
+    "domain": "D1: セキュリティとリスクマネジメント",
+    "term": "Preventive Controls",
+    "definition": "予防的統制。侵害が発生する前に阻止する。"
+  },
+  {
+    "id": "d1-018",
+    "domain": "D1: セキュリティとリスクマネジメント",
+    "term": "Detective Controls",
+    "definition": "発見的統制。侵害が発生したことを検知する。"
+  },
+  {
+    "id": "d1-019",
+    "domain": "D1: セキュリティとリスクマネジメント",
+    "term": "Corrective Controls",
+    "definition": "修正的統制。発生した問題を修正し、正常に戻す。"
+  },
+  {
+    "id": "d1-020",
+    "domain": "D1: セキュリティとリスクマネジメント",
+    "term": "Deterrent Controls",
+    "definition": "抑止的統制。攻撃の意欲を削ぐ。"
+  },
+  {
+    "id": "d1-021",
+    "domain": "D1: セキュリティとリスクマネジメント",
+    "term": "Compensating Controls",
+    "definition": "補完的統制。既存の統制の弱点を補う。"
+  },
+  {
+    "id": "d1-022",
+    "domain": "D1: セキュリティとリスクマネジメント",
+    "term": "Recovery Controls",
+    "definition": "復旧的統制。バックアップからのリストアなど。"
+  },
+  {
+    "id": "d1-023",
+    "domain": "D1: セキュリティとリスクマネジメント",
+    "term": "GDPR",
+    "definition": "EU一般データ保護規則。個人のプライバシー保護を強化する規則。"
+  },
+  {
+    "id": "d1-024",
+    "domain": "D1: セキュリティとリスクマネジメント",
+    "term": "HIPAA",
+    "definition": "医療保険の相互運用性と責任に関する法律。医療情報の保護。"
+  },
+  {
+    "id": "d1-025",
+    "domain": "D1: セキュリティとリスクマネジメント",
+    "term": "PCI DSS",
+    "definition": "クレジットカード情報の安全な取り扱いを定めた業界基準。"
+  },
+  {
+    "id": "d1-026",
+    "domain": "D1: セキュリティとリスクマネジメント",
+    "term": "ISO/IEC 27001",
+    "definition": "ISMS（情報セキュリティマネジメントシステム）の国際規格。"
+  },
+  {
+    "id": "d1-027",
+    "domain": "D1: セキュリティとリスクマネジメント",
+    "term": "Scoping",
+    "definition": "セキュリティ基準から適用外の管理策を除外するプロセス。"
+  },
+  {
+    "id": "d1-028",
+    "domain": "D1: セキュリティとリスクマネジメント",
+    "term": "Tailoring",
+    "definition": "組織のニーズに合わせて管理策を調整・追加するプロセス。"
+  },
+  {
+    "id": "d1-029",
+    "domain": "D1: セキュリティとリスクマネジメント",
+    "term": "Threat Modeling",
+    "definition": "潜在的な脅威を特定、分類、分析する構造化されたアプローチ。"
+  },
+  {
+    "id": "d1-030",
+    "domain": "D1: セキュリティとリスクマネジメント",
+    "term": "STRIDE",
+    "definition": "なりすまし、改ざん、否認、情報漏洩、DoS、権限昇格。"
+  },
+  {
+    "id": "d1-031",
+    "domain": "D1: セキュリティとリスクマネジメント",
+    "term": "Qualitative Risk Analysis",
+    "definition": "定性的リスク分析。経験や判断に基づき高・中・低で評価。"
+  },
+  {
+    "id": "d1-032",
+    "domain": "D1: セキュリティとリスクマネジメント",
+    "term": "Quantitative Risk Analysis",
+    "definition": "定量的リスク分析。数値（金額）を用いて算出。"
+  },
+  {
+    "id": "d1-033",
+    "domain": "D1: セキュリティとリスクマネジメント",
+    "term": "Risk Avoidance",
+    "definition": "リスク回避。リスクの原因となる活動自体を中止する。"
+  },
+  {
+    "id": "d1-034",
+    "domain": "D1: セキュリティとリスクマネジメント",
+    "term": "Risk Mitigation",
+    "definition": "リスク低減。管理策を導入してリスクを許容範囲内に下げる。"
+  },
+  {
+    "id": "d1-035",
+    "domain": "D1: セキュリティとリスクマネジメント",
+    "term": "Risk Transfer",
+    "definition": "リスク移転。保険への加入やアウトソーシング。"
+  },
+  {
+    "id": "d1-036",
+    "domain": "D1: セキュリティとリスクマネジメント",
+    "term": "Risk Acceptance",
+    "definition": "リスク受容。対策コストが上回る場合などに現状を維持する。"
+  },
+  {
+    "id": "d1-037",
+    "domain": "D1: セキュリティとリスクマネジメント",
+    "term": "Corporate Governance",
+    "definition": "コーポレートガバナンス。組織を指揮・管理する仕組み。"
+  },
+  {
+    "id": "d1-038",
+    "domain": "D1: セキュリティとリスクマネジメント",
+    "term": "Standard",
+    "definition": "標準。遵守が強制される具体的なルールや手順。"
+  },
+  {
+    "id": "d1-039",
+    "domain": "D1: セキュリティとリスクマネジメント",
+    "term": "Guideline",
+    "definition": "ガイドライン。推奨される事項で、強制力はない。"
+  },
+  {
+    "id": "d1-040",
+    "domain": "D1: セキュリティとリスクマネジメント",
+    "term": "Procedure",
+    "definition": "手順書。特定のタスクを実行するための詳細なステップ。"
+  },
+  {
+    "id": "d1-041",
+    "domain": "D1: セキュリティとリスクマネジメント",
+    "term": "Policy",
+    "definition": "基本方針。組織のセキュリティに対する考え方を示す高レベルな文書。"
+  },
+  {
+    "id": "d1-042",
+    "domain": "D1: セキュリティとリスクマネジメント",
+    "term": "OCTAVE",
+    "definition": "組織主導のリスク評価手法。"
+  },
+  {
+    "id": "d1-043",
+    "domain": "D1: セキュリティとリスクマネジメント",
+    "term": "DREAD",
+    "definition": "脅威の深刻度を評価するモデル（損傷、再現性、悪用可能性、影響、発見可能性）。"
+  },
+  {
+    "id": "d1-044",
+    "domain": "D1: セキュリティとリスクマネジメント",
+    "term": "Exposure Factor",
+    "definition": "暴露係数。脅威が発生した際の資産の損失割合(%)。"
+  },
+  {
+    "id": "d1-045",
+    "domain": "D1: セキュリティとリスクマネジメント",
+    "term": "Supply Chain Risk Management",
+    "definition": "サプライチェーン全体でのリスクを管理・評価すること。"
+  },
+  {
+    "id": "d1-046",
+    "domain": "D1: セキュリティとリスクマネジメント",
+    "term": "Third-Party Assessment",
+    "definition": "第三者機関によるセキュリティ評価や監査。"
+  },
+  {
+    "id": "d1-047",
+    "domain": "D1: セキュリティとリスクマネジメント",
+    "term": "NDA",
+    "definition": "秘密保持契約。機密情報を外部に漏らさないための合意。"
+  },
+  {
+    "id": "d1-048",
+    "domain": "D1: セキュリティとリスクマネジメント",
+    "term": "Onboarding",
+    "definition": "採用時やプロジェクト参加時の教育や権限付与プロセス。"
+  },
+  {
+    "id": "d1-049",
+    "domain": "D1: セキュリティとリスクマネジメント",
+    "term": "Offboarding",
+    "definition": "退職時やプロジェクト離脱時の権限剥奪や資産回収プロセス。"
+  },
+  {
+    "id": "d1-050",
+    "domain": "D1: セキュリティとリスクマネジメント",
+    "term": "Ethics",
+    "definition": "倫理。ISC2倫理規程に従った行動が求められる。"
+  }
+]
