@@ -57,7 +57,7 @@
       </div>
       <span class="section-title" id="ui-setup-title">出題ドメイン</span>
       <div class="domain-list">
-        <label><input type="checkbox" class="domain-cb" value="domain1" checked> <span id="label-d1">D1</span></label>
+        <label><input type="checkbox" class="domain-cb" value="domain1"> <span id="label-d1">D1</span></label>
         <label><input type="checkbox" class="domain-cb" value="domain2"> <span id="label-d2">D2</span></label>
         <label><input type="checkbox" class="domain-cb" value="domain3"> <span id="label-d3">D3</span></label>
         <label><input type="checkbox" class="domain-cb" value="domain4"> <span id="label-d4">D4</span></label>
@@ -145,14 +145,12 @@ async function startApp() {
   let raw = []; let files = Array.from(cbs).map(c => `${c.value}.json`); if (law) files.push('law.json');
   for (let f of files) { try { const r = await fetch(f); if (r.ok) raw = raw.concat(await r.json()); } catch (e) {} }
   
-  // データが0件の場合のセーフティネット
   if (raw.length === 0) return alert(uiDict[currentLang].alertLoadFail);
 
   const mode = document.querySelector('input[name="mode"]:checked').value;
   if (mode === 'spaced') { 
     const now = Date.now(); 
     deck = raw.filter(c => !stats[c.id] || !stats[c.id].nextReviewDate || stats[c.id].nextReviewDate <= now); 
-    // 復習対象が0件の場合のセーフティネット（多言語対応）
     if (deck.length === 0) return alert(uiDict[currentLang].alertNoReview); 
   } else {
     deck = raw;
