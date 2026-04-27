@@ -14,6 +14,7 @@
   button { width: 100%; padding: 15px; font-size: 1.1em; font-weight: bold; color: #fff; background-color: #007bff; border: none; border-radius: 8px; cursor: pointer; margin-top: 10px;}
   .btn-fail { background-color: #dc3545; }
   .btn-success { background-color: #28a745; }
+  .btn-secondary { background-color: #6c757d; }
   .lang-switch { display: flex; justify-content: center; gap: 20px; margin-bottom: 15px; }
   .lang-switch label { font-size: 1.1em; font-weight: bold; }
   .section-title { font-weight: bold; margin-bottom: 10px; display: block; text-align: left; font-size: 1.1em; border-bottom: 1px solid #eee; padding-bottom: 5px; margin-top: 15px;}
@@ -88,10 +89,15 @@
       </div>
     </div>
     <div class="controls" id="reveal-control"><button id="ui-reveal-btn" onclick="showAnswer()">解答表示</button></div>
-    <div class="controls" id="action-controls" style="display: none;">
-      <button class="btn-fail" id="ui-fail-btn" onclick="recordResult(false)">忘れた</button>
-      <button class="btn-success" id="ui-success-btn" onclick="recordResult(true)">覚えた</button>
+    
+    <div id="action-controls" style="display: none; flex-direction: column; width: 100%;">
+      <div style="display: flex; gap: 10px; width: 100%;">
+        <button class="btn-fail" id="ui-fail-btn" onclick="recordResult(false)" style="flex:1; margin-top:0;">忘れた</button>
+        <button class="btn-success" id="ui-success-btn" onclick="recordResult(true)" style="flex:1; margin-top:0;">覚えた</button>
+      </div>
+      <button class="btn-secondary" id="ui-flip-back-btn" onclick="hideAnswer()">問題に戻る</button>
     </div>
+
   </div>
   <div id="result-screen" class="screen"><div class="box"><h2 id="ui-result-title"></h2><div class="score-display" id="score-display"></div><button id="ui-back-btn" onclick="backToTop()">戻る</button></div></div>
 
@@ -100,7 +106,7 @@ const uiDict = {
   ja: { 
     modeTitle: "出題モード", modeAll: "すべての問題", modeSpaced: "最適復習 (忘却曲線)", setupTitle: "出題ドメイン", 
     lawTitle: "法規制・コンプライアンス", labelLaw: "米国法律・規制 (Law & Regulations)", startBtn: "学習を開始する", 
-    quitBtn: "終了する", revealBtn: "解答を表示", failBtn: "忘れた", successBtn: "覚えた", resultTitle: "学習完了", 
+    quitBtn: "終了する", revealBtn: "解答を表示", flipBackBtn: "問題に戻る", failBtn: "忘れた", successBtn: "覚えた", resultTitle: "学習完了", 
     backBtn: "トップへ戻る", searchTitle: "用語クイック検索", searchPlaceholder: "検索...", searchEmpty: "該当なし", 
     d1: "D1: リスク管理", d2: "D2: 資産保護", d3: "D3: アーキテクチャ", d4: "D4: ネットワーク", d5: "D5: IAM", 
     d6: "D6: 評価テスト", d7: "D7: 運用", d8: "D8: 開発", 
@@ -109,7 +115,7 @@ const uiDict = {
   en: { 
     modeTitle: "Study Mode", modeAll: "All", modeSpaced: "Spaced Repetition", setupTitle: "Domains", 
     lawTitle: "Legal & Compliance", labelLaw: "US Laws & Regulations", startBtn: "Start", 
-    quitBtn: "Quit", revealBtn: "Show Answer", failBtn: "Forgot", successBtn: "Remembered", resultTitle: "Complete", 
+    quitBtn: "Quit", revealBtn: "Show Answer", flipBackBtn: "Back to Question", failBtn: "Forgot", successBtn: "Remembered", resultTitle: "Complete", 
     backBtn: "Top", searchTitle: "Search", searchPlaceholder: "Search...", searchEmpty: "No results", 
     d1: "D1", d2: "D2", d3: "D3", d4: "D4", d5: "D5", d6: "D6", d7: "D7", d8: "D8", 
     alertNoDomain: "Please select an item.", alertLoadFail: "Failed to load data.", alertNoReview: "No items to review." 
@@ -128,7 +134,7 @@ function initLang() { document.querySelector(`input[name="lang"][value="${curren
 function changeLang() { currentLang = document.querySelector('input[name="lang"]:checked').value; localStorage.setItem('cissp_lang', currentLang); applyUIText(); handleSearch(); }
 
 function applyUIText() {
-  const d = uiDict[currentLang]; document.getElementById('ui-mode-title').innerText = d.modeTitle; document.getElementById('ui-mode-all').innerText = d.modeAll; document.getElementById('ui-mode-spaced').innerText = d.modeSpaced; document.getElementById('ui-setup-title').innerText = d.setupTitle; document.getElementById('ui-law-title').innerText = d.lawTitle; document.getElementById('label-law').innerText = d.labelLaw; document.getElementById('ui-start-btn').innerText = d.startBtn; document.getElementById('ui-quit-btn').innerText = d.quitBtn; document.getElementById('ui-reveal-btn').innerText = d.revealBtn; document.getElementById('ui-fail-btn').innerText = d.failBtn; document.getElementById('ui-success-btn').innerText = d.successBtn; document.getElementById('ui-result-title').innerText = d.resultTitle; document.getElementById('ui-back-btn').innerText = d.backBtn; document.getElementById('ui-search-title').innerText = d.searchTitle; document.getElementById('search-input').placeholder = d.searchPlaceholder;
+  const d = uiDict[currentLang]; document.getElementById('ui-mode-title').innerText = d.modeTitle; document.getElementById('ui-mode-all').innerText = d.modeAll; document.getElementById('ui-mode-spaced').innerText = d.modeSpaced; document.getElementById('ui-setup-title').innerText = d.setupTitle; document.getElementById('ui-law-title').innerText = d.lawTitle; document.getElementById('label-law').innerText = d.labelLaw; document.getElementById('ui-start-btn').innerText = d.startBtn; document.getElementById('ui-quit-btn').innerText = d.quitBtn; document.getElementById('ui-reveal-btn').innerText = d.revealBtn; document.getElementById('ui-flip-back-btn').innerText = d.flipBackBtn; document.getElementById('ui-fail-btn').innerText = d.failBtn; document.getElementById('ui-success-btn').innerText = d.successBtn; document.getElementById('ui-result-title').innerText = d.resultTitle; document.getElementById('ui-back-btn').innerText = d.backBtn; document.getElementById('ui-search-title').innerText = d.searchTitle; document.getElementById('search-input').placeholder = d.searchPlaceholder;
   for (let i = 1; i <= 8; i++) document.getElementById(`label-d${i}`).innerText = d[`d${i}`];
 }
 
@@ -164,7 +170,18 @@ function updateCard() {
   document.getElementById('flashcard').classList.remove('flipped'); document.getElementById('reveal-control').style.display = 'flex'; document.getElementById('action-controls').style.display = 'none'; document.getElementById('status').innerText = `${currentIndex + 1} / ${deck.length}`;
 }
 
-function showAnswer() { document.getElementById('flashcard').classList.add('flipped'); document.getElementById('reveal-control').style.display = 'none'; document.getElementById('action-controls').style.display = 'flex'; }
+function showAnswer() { 
+  document.getElementById('flashcard').classList.add('flipped'); 
+  document.getElementById('reveal-control').style.display = 'none'; 
+  document.getElementById('action-controls').style.display = 'flex'; 
+}
+
+// 追加・修正部分：問題に戻る機能
+function hideAnswer() {
+  document.getElementById('flashcard').classList.remove('flipped');
+  document.getElementById('reveal-control').style.display = 'flex';
+  document.getElementById('action-controls').style.display = 'none';
+}
 
 function recordResult(win) {
   const id = deck[currentIndex].id; let s = stats[id] || { correct: 0, total: 0, interval: 0, easeFactor: 2.5, repetitions: 0 };
