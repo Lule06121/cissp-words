@@ -1,0 +1,60 @@
+// law.json に追記するデータ (law-011 〜 law-030)
+  ,
+  {
+    "id": "law-011", "domain": "Law & Regulation",
+    "term": "GLBA", "term_en": "Gramm-Leach-Bliley Act",
+    "definition": "金融サービス近代化法。金融機関に対し、顧客データの機密性と完全性を保護し、共有ポリシーを通知することを義務付ける。",
+    "definition_en": "A US law that requires financial institutions to explain their information-sharing practices and safeguard sensitive data."
+  },
+  {
+    "id": "law-012", "domain": "Law & Regulation",
+    "term": "SOX Act", "term_en": "Sarbanes-Oxley Act",
+    "definition": "サーベンス・オクスリー法。企業の財務報告の透明性を高め、IT全般統制を含む内部統制の監査を義務付ける。",
+    "definition_en": "A law to improve corporate governance and financial disclosures, requiring auditing of internal controls (ITGC)."
+  },
+  {
+    "id": "law-013", "domain": "Law & Regulation",
+    "term": "COPPA", "term_en": "Children's Online Privacy Protection Act",
+    "definition": "児童オンラインプライバシー保護法。13歳未満の子供から個人情報を収集する場合に親の同意を求める法律。",
+    "definition_en": "Regulates the online collection of personal information from children under the age of 13."
+  },
+  {
+    "id": "law-014", "domain": "Law & Regulation",
+    "term": "Patents", "term_en": "Patents",
+    "definition": "特許権。新規かつ有用な発明に対し、一定期間（20年）独占権を与える。アイデアを一般公開する代償として付与される。",
+    "definition_en": "Protects novel and useful inventions for 20 years in exchange for public disclosure of the invention."
+  },
+  {
+    "id": "law-015", "domain": "Law & Regulation",
+    "term": "Trademarks", "term_en": "Trademarks",
+    "definition": "商標権。商品やサービスを識別するためのロゴ、名前、シンボルを保護する。更新により無期限に保護可能。",
+    "definition_en": "Protects words, names, symbols, and logos used to identify and distinguish goods or services."
+  },
+  {
+    "id": "law-016", "domain": "Law & Regulation",
+    "term": "Copyrights", "term_en": "Copyrights",
+    "definition": "著作権。文学、音楽、ソフトウェア等の創作物を保護する。アイデアそのものではなく「表現」を保護対象とする。",
+    "definition_en": "Protects original works of authorship (literature, software) focusing on expression, not the underlying idea."
+  },
+  {
+    "id": "law-017", "domain": "Law & Regulation",
+    "term": "Trade Secrets", "term_en": "Trade Secrets",
+    "definition": "営業秘密。公開せずに秘密にすることで価値を持つ情報。特許と異なり期限はないが、公開された時点で保護が消滅する。",
+    "definition_en": "Proprietary information that is kept secret to provide a competitive advantage; has no expiration as long as it's secret."
+  },
+  {
+    "id": "law-018", "domain": "Law & Regulation",
+    "term": "GDPR", "term_en": "General Data Protection Regulation",
+    "definition": "EU一般データ保護規則。個人のプライバシー保護を強化し、データの持ち出し制限や「忘れられる権利」を規定する。",
+    "definition_en": "EU regulation on data protection and privacy, including data portability and the 'right to be forgotten'."
+  },
+  {
+    "id": "law-019", "domain": "Law & Regulation",
+    "term": "California Consumer Privacy Act (CCPA)", "term_en": "CCPA",
+    "definition": "カリフォルニア州消費者プライバシー法。米国内で最も厳格な州法の一つで、個人情報の販売拒否権などを規定。",
+    "definition_en": "A state statute intended to enhance privacy rights and consumer protection for residents of California."
+  },
+  {
+    "id": "law-020", "domain": "Law & Regulation",
+    "term": "CALEA", "term_en": "Communications Assistance for Law Enforcement Act",
+    "definition": "法執行機関のための通信援助法。通信事業者が政府の正当な傍受（盗聴等
