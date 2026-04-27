@@ -94,49 +94,91 @@
     </div>
   </div>
   <div id="result-screen" class="screen"><div class="box"><h2 id="ui-result-title"></h2><div class="score-display" id="score-display"></div><button id="ui-back-btn" onclick="backToTop()">戻る</button></div></div>
+
 <script>
 const uiDict = {
-  ja: { modeTitle: "出題モード", modeAll: "すべての問題", modeSpaced: "最適復習 (忘却曲線)", setupTitle: "出題ドメイン", lawTitle: "法規制・コンプライアンス", labelLaw: "米国法律・規制 (Law & Regulations)", startBtn: "学習を開始する", quitBtn: "終了する", revealBtn: "解答を表示", failBtn: "忘れた", successBtn: "覚えた", resultTitle: "学習完了", backBtn: "トップへ戻る", searchTitle: "用語クイック検索", searchPlaceholder: "検索...", searchEmpty: "該当なし", d1: "D1: リスク管理", d2: "D2: 資産保護", d3: "D3: アーキテクチャ", d4: "D4: ネットワーク", d5: "D5: IAM", d6: "D6: 評価テスト", d7: "D7: 運用", d8: "D8: 開発", alertNoDomain: "項目を選択してください。" },
-  en: { modeTitle: "Study Mode", modeAll: "All", modeSpaced: "Spaced Repetition", setupTitle: "Domains", lawTitle: "Legal & Compliance", labelLaw: "US Laws & Regulations", startBtn: "Start", quitBtn: "Quit", revealBtn: "Show Answer", failBtn: "Forgot", successBtn: "Remembered", resultTitle: "Complete", backBtn: "Top", searchTitle: "Search", searchPlaceholder: "Search...", searchEmpty: "No results", d1: "D1", d2: "D2", d3: "D3", d4: "D4", d5: "D5", d6: "D6", d7: "D7", d8: "D8", alertNoDomain: "Please select an item." }
+  ja: { 
+    modeTitle: "出題モード", modeAll: "すべての問題", modeSpaced: "最適復習 (忘却曲線)", setupTitle: "出題ドメイン", 
+    lawTitle: "法規制・コンプライアンス", labelLaw: "米国法律・規制 (Law & Regulations)", startBtn: "学習を開始する", 
+    quitBtn: "終了する", revealBtn: "解答を表示", failBtn: "忘れた", successBtn: "覚えた", resultTitle: "学習完了", 
+    backBtn: "トップへ戻る", searchTitle: "用語クイック検索", searchPlaceholder: "検索...", searchEmpty: "該当なし", 
+    d1: "D1: リスク管理", d2: "D2: 資産保護", d3: "D3: アーキテクチャ", d4: "D4: ネットワーク", d5: "D5: IAM", 
+    d6: "D6: 評価テスト", d7: "D7: 運用", d8: "D8: 開発", 
+    alertNoDomain: "項目を選択してください。", alertLoadFail: "問題データを読み込めませんでした。", alertNoReview: "復習すべき項目はありません。" 
+  },
+  en: { 
+    modeTitle: "Study Mode", modeAll: "All", modeSpaced: "Spaced Repetition", setupTitle: "Domains", 
+    lawTitle: "Legal & Compliance", labelLaw: "US Laws & Regulations", startBtn: "Start", 
+    quitBtn: "Quit", revealBtn: "Show Answer", failBtn: "Forgot", successBtn: "Remembered", resultTitle: "Complete", 
+    backBtn: "Top", searchTitle: "Search", searchPlaceholder: "Search...", searchEmpty: "No results", 
+    d1: "D1", d2: "D2", d3: "D3", d4: "D4", d5: "D5", d6: "D6", d7: "D7", d8: "D8", 
+    alertNoDomain: "Please select an item.", alertLoadFail: "Failed to load data.", alertNoReview: "No items to review." 
+  }
 };
+
 let allMasterData = []; let deck = []; let currentIndex = 0; let stats = JSON.parse(localStorage.getItem('cissp_stats')) || {}; let sessionCorrect = 0; let sessionAnswered = 0; let currentLang = localStorage.getItem('cissp_lang') || 'ja';
+
 async function loadAllData() {
   allMasterData = []; let files = ["domain1", "domain2", "domain3", "domain4", "domain5", "domain6", "domain7", "domain8", "law"];
   for (let f of files) { try { const r = await fetch(`${f}.json`); if (r.ok) allMasterData = allMasterData.concat(await r.json()); } catch (e) {} }
 }
+
 function initLang() { document.querySelector(`input[name="lang"][value="${currentLang}"]`).checked = true; applyUIText(); loadAllData(); }
+
 function changeLang() { currentLang = document.querySelector('input[name="lang"]:checked').value; localStorage.setItem('cissp_lang', currentLang); applyUIText(); handleSearch(); }
+
 function applyUIText() {
   const d = uiDict[currentLang]; document.getElementById('ui-mode-title').innerText = d.modeTitle; document.getElementById('ui-mode-all').innerText = d.modeAll; document.getElementById('ui-mode-spaced').innerText = d.modeSpaced; document.getElementById('ui-setup-title').innerText = d.setupTitle; document.getElementById('ui-law-title').innerText = d.lawTitle; document.getElementById('label-law').innerText = d.labelLaw; document.getElementById('ui-start-btn').innerText = d.startBtn; document.getElementById('ui-quit-btn').innerText = d.quitBtn; document.getElementById('ui-reveal-btn').innerText = d.revealBtn; document.getElementById('ui-fail-btn').innerText = d.failBtn; document.getElementById('ui-success-btn').innerText = d.successBtn; document.getElementById('ui-result-title').innerText = d.resultTitle; document.getElementById('ui-back-btn').innerText = d.backBtn; document.getElementById('ui-search-title').innerText = d.searchTitle; document.getElementById('search-input').placeholder = d.searchPlaceholder;
   for (let i = 1; i <= 8; i++) document.getElementById(`label-d${i}`).innerText = d[`d${i}`];
 }
+
 function handleSearch() {
   const q = document.getElementById('search-input').value.toLowerCase(); const r = document.getElementById('search-results'); if (!q.trim()) { r.innerHTML = ''; return; }
-  const h = allMasterData.filter(c => (c.term||"").toLowerCase().includes(q) || (c.definition||"").toLowerCase().includes(q) || (c.term_en||"").toLowerCase().includes(q)).slice(0, 10);
+  const h = allMasterData.filter(c => (c.term||"").toLowerCase().includes(q) || (c.definition||"").toLowerCase().includes(q) || (c.term_en||"").toLowerCase().includes(q) || (c.definition_en||"").toLowerCase().includes(q)).slice(0, 10);
   r.innerHTML = h.length ? h.map(c => `<div class="search-item"><div class="search-term">${currentLang=='en'&&c.term_en?c.term_en:c.term}</div><div>${currentLang=='en'&&c.definition_en?c.definition_en:c.definition}</div></div>`).join('') : uiDict[currentLang].searchEmpty;
 }
+
 async function startApp() {
-  const cbs = document.querySelectorAll('.domain-cb:checked'); const law = document.getElementById('include-law').checked; if (!cbs.length && !law) return alert(uiDict[currentLang].alertNoDomain);
+  const cbs = document.querySelectorAll('.domain-cb:checked'); const law = document.getElementById('include-law').checked; 
+  if (!cbs.length && !law) return alert(uiDict[currentLang].alertNoDomain);
+  
   let raw = []; let files = Array.from(cbs).map(c => `${c.value}.json`); if (law) files.push('law.json');
   for (let f of files) { try { const r = await fetch(f); if (r.ok) raw = raw.concat(await r.json()); } catch (e) {} }
+  
+  // データが0件の場合のセーフティネット
+  if (raw.length === 0) return alert(uiDict[currentLang].alertLoadFail);
+
   const mode = document.querySelector('input[name="mode"]:checked').value;
-  if (mode === 'spaced') { const now = Date.now(); deck = raw.filter(c => !stats[c.id] || !stats[c.id].nextReviewDate || stats[c.id].nextReviewDate <= now); if (!deck.length) return alert("復習すべき項目はありません。"); } else deck = raw;
+  if (mode === 'spaced') { 
+    const now = Date.now(); 
+    deck = raw.filter(c => !stats[c.id] || !stats[c.id].nextReviewDate || stats[c.id].nextReviewDate <= now); 
+    // 復習対象が0件の場合のセーフティネット（多言語対応）
+    if (deck.length === 0) return alert(uiDict[currentLang].alertNoReview); 
+  } else {
+    deck = raw;
+  }
+  
   deck.sort(() => Math.random() - 0.5); currentIndex = 0; sessionCorrect = 0; sessionAnswered = 0; switchScreen('study-screen'); updateCard();
 }
+
 function updateCard() {
   const c = deck[currentIndex]; document.getElementById('domain-label').innerText = c.domain; document.getElementById('term').innerText = currentLang=='en'&&c.term_en?c.term_en:c.term; document.getElementById('definition').innerText = currentLang=='en'&&c.definition_en?c.definition_en:c.definition;
   document.getElementById('flashcard').classList.remove('flipped'); document.getElementById('reveal-control').style.display = 'flex'; document.getElementById('action-controls').style.display = 'none'; document.getElementById('status').innerText = `${currentIndex + 1} / ${deck.length}`;
 }
+
 function showAnswer() { document.getElementById('flashcard').classList.add('flipped'); document.getElementById('reveal-control').style.display = 'none'; document.getElementById('action-controls').style.display = 'flex'; }
+
 function recordResult(win) {
   const id = deck[currentIndex].id; let s = stats[id] || { correct: 0, total: 0, interval: 0, easeFactor: 2.5, repetitions: 0 };
   s.total++; if (win) { s.correct++; s.interval = s.repetitions==0?1:s.repetitions==1?3:Math.round(s.interval*s.easeFactor); s.easeFactor+=0.1; s.repetitions++; sessionCorrect++; } else { s.interval=1; s.easeFactor=Math.max(1.3, s.easeFactor-0.2); s.repetitions=0; }
   s.nextReviewDate = Date.now() + (s.interval*86400000); stats[id] = s; localStorage.setItem('cissp_stats', JSON.stringify(stats)); sessionAnswered++;
   if (++currentIndex >= deck.length) endSession(); else updateCard();
 }
+
 function endSession() { document.getElementById('score-display').innerText = `${sessionCorrect} / ${sessionAnswered}`; switchScreen('result-screen'); }
 function backToTop() { switchScreen('setup-screen'); document.getElementById('search-input').value = ''; document.getElementById('search-results').innerHTML = ''; }
 function switchScreen(id) { document.querySelectorAll('.screen').forEach(s => s.classList.remove('active')); document.getElementById(id).classList.add('active'); }
+
 initLang();
 </script>
 </body>
