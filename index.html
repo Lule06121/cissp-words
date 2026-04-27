@@ -39,6 +39,9 @@
   .domain-tag { font-size: 0.8em; color: #666; margin-bottom: 10px; font-weight: bold; }
   .term { font-size: 1.4em; font-weight: bold; }
   .definition { font-size: 1em; line-height: 1.4; }
+  .reference-link { margin-top: 15px; padding-top: 10px; border-top: 1px solid #4a90e2; width: 100%; font-size: 0.9em; }
+  .reference-link a { color: #a9d3ff; text-decoration: none; font-weight: bold; display: flex; align-items: center; justify-content: center; gap: 5px; }
+  .reference-link a:hover { text-decoration: underline; }
   .controls { display: flex; gap: 10px; width: 100%; }
   .controls button { flex: 1; margin-top: 0; }
   .score-display { font-size: 1.5em; font-weight: bold; color: #0056b3; margin: 20px 0; }
@@ -85,11 +88,13 @@
     <div class="card" id="flashcard">
       <div class="card-inner">
         <div class="card-face card-front"><div class="domain-tag" id="domain-label"></div><div class="term" id="term"></div></div>
-        <div class="card-face card-back"><div class="definition" id="definition"></div></div>
+        <div class="card-face card-back">
+          <div class="definition" id="definition"></div>
+          <div class="reference-link" id="reference" style="display: none;"></div>
+        </div>
       </div>
     </div>
     <div class="controls" id="reveal-control"><button id="ui-reveal-btn" onclick="showAnswer()">解答表示</button></div>
-    
     <div id="action-controls" style="display: none; flex-direction: column; width: 100%;">
       <div style="display: flex; gap: 10px; width: 100%;">
         <button class="btn-fail" id="ui-fail-btn" onclick="recordResult(false)" style="flex:1; margin-top:0;">忘れた</button>
@@ -97,7 +102,6 @@
       </div>
       <button class="btn-secondary" id="ui-flip-back-btn" onclick="hideAnswer()">問題に戻る</button>
     </div>
-
   </div>
   <div id="result-screen" class="screen"><div class="box"><h2 id="ui-result-title"></h2><div class="score-display" id="score-display"></div><button id="ui-back-btn" onclick="backToTop()">戻る</button></div></div>
 
@@ -110,7 +114,8 @@ const uiDict = {
     backBtn: "トップへ戻る", searchTitle: "用語クイック検索", searchPlaceholder: "検索...", searchEmpty: "該当なし", 
     d1: "D1: リスク管理", d2: "D2: 資産保護", d3: "D3: アーキテクチャ", d4: "D4: ネットワーク", d5: "D5: IAM", 
     d6: "D6: 評価テスト", d7: "D7: 運用", d8: "D8: 開発", 
-    alertNoDomain: "項目を選択してください。", alertLoadFail: "問題データを読み込めませんでした。", alertNoReview: "復習すべき項目はありません。" 
+    alertNoDomain: "項目を選択してください。", alertLoadFail: "問題データを読み込めませんでした。", alertNoReview: "復習すべき項目はありません。",
+    refLabel: "🌐 参考リンクを開く"
   },
   en: { 
     modeTitle: "Study Mode", modeAll: "All", modeSpaced: "Spaced Repetition", setupTitle: "Domains", 
@@ -118,7 +123,8 @@ const uiDict = {
     quitBtn: "Quit", revealBtn: "Show Answer", flipBackBtn: "Back to Question", failBtn: "Forgot", successBtn: "Remembered", resultTitle: "Complete", 
     backBtn: "Top", searchTitle: "Search", searchPlaceholder: "Search...", searchEmpty: "No results", 
     d1: "D1", d2: "D2", d3: "D3", d4: "D4", d5: "D5", d6: "D6", d7: "D7", d8: "D8", 
-    alertNoDomain: "Please select an item.", alertLoadFail: "Failed to load data.", alertNoReview: "No items to review." 
+    alertNoDomain: "Please select an item.", alertLoadFail: "Failed to load data.", alertNoReview: "No items to review.",
+    refLabel: "🌐 Open Reference Link"
   }
 };
 
@@ -166,35 +172,17 @@ async function startApp() {
 }
 
 function updateCard() {
-  const c = deck[currentIndex]; document.getElementById('domain-label').innerText = c.domain; document.getElementById('term').innerText = currentLang=='en'&&c.term_en?c.term_en:c.term; document.getElementById('definition').innerText = currentLang=='en'&&c.definition_en?c.definition_en:c.definition;
-  document.getElementById('flashcard').classList.remove('flipped'); document.getElementById('reveal-control').style.display = 'flex'; document.getElementById('action-controls').style.display = 'none'; document.getElementById('status').innerText = `${currentIndex + 1} / ${deck.length}`;
-}
+  const c = deck[currentIndex]; 
+  document.getElementById('domain-label').innerText = c.domain; 
+  document.getElementById('term').innerText = currentLang=='en'&&c.term_en?c.term_en:c.term; 
+  document.getElementById('definition').innerText = currentLang=='en'&&c.definition_en?c.definition_en:c.definition;
+  
+  const refElem = document.getElementById('reference');
+  if (c.reference_url) {
+    refElem.innerHTML = `<a href="${c.reference_url}" target="_blank" rel="noopener noreferrer">${uiDict[currentLang].refLabel}</a>`;
+    refElem.style.display = 'block';
+  } else {
+    refElem.style.display = 'none';
+  }
 
-function showAnswer() { 
-  document.getElementById('flashcard').classList.add('flipped'); 
-  document.getElementById('reveal-control').style.display = 'none'; 
-  document.getElementById('action-controls').style.display = 'flex'; 
-}
-
-// 追加・修正部分：問題に戻る
-function hideAnswer() {
-  document.getElementById('flashcard').classList.remove('flipped');
-  document.getElementById('reveal-control').style.display = 'flex';
-  document.getElementById('action-controls').style.display = 'none';
-}
-
-function recordResult(win) {
-  const id = deck[currentIndex].id; let s = stats[id] || { correct: 0, total: 0, interval: 0, easeFactor: 2.5, repetitions: 0 };
-  s.total++; if (win) { s.correct++; s.interval = s.repetitions==0?1:s.repetitions==1?3:Math.round(s.interval*s.easeFactor); s.easeFactor+=0.1; s.repetitions++; sessionCorrect++; } else { s.interval=1; s.easeFactor=Math.max(1.3, s.easeFactor-0.2); s.repetitions=0; }
-  s.nextReviewDate = Date.now() + (s.interval*86400000); stats[id] = s; localStorage.setItem('cissp_stats', JSON.stringify(stats)); sessionAnswered++;
-  if (++currentIndex >= deck.length) endSession(); else updateCard();
-}
-
-function endSession() { document.getElementById('score-display').innerText = `${sessionCorrect} / ${sessionAnswered}`; switchScreen('result-screen'); }
-function backToTop() { switchScreen('setup-screen'); document.getElementById('search-input').value = ''; document.getElementById('search-results').innerHTML = ''; }
-function switchScreen(id) { document.querySelectorAll('.screen').forEach(s => s.classList.remove('active')); document.getElementById(id).classList.add('active'); }
-
-initLang();
-</script>
-</body>
-</html>
+  document.getElementById('flashcard').classList.remove('flipped'); document.getElementById('reveal-control').style.display = 'flex'; document.getElementById('action-controls').style.
