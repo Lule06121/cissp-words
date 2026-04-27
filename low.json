@@ -57,4 +57,66 @@
   {
     "id": "law-020", "domain": "Law & Regulation",
     "term": "CALEA", "term_en": "Communications Assistance for Law Enforcement Act",
-    "definition": "法執行機関のための通信援助法。通信事業者が政府の正当な傍受（盗聴等
+    "definition": "法執行機関のための通信援助法。通信事業者が政府の正当な傍受（盗聴等）に協力できる環境を維持することを義務付ける。",
+    "definition_en": "Requires telecommunications carriers to modify their networks to allow government wiretapping under legal authority."
+  },
+  {
+    "id": "law-021", "domain": "Law & Regulation",
+    "term": "Economic Espionage Act", "term_en": "Economic Espionage Act of 1996",
+    "definition": "経済スパイ法。米国の企業の営業秘密を外国政府や他者が窃取することを連邦犯罪として規定。",
+    "definition_en": "Criminalizes the theft of trade secrets to benefit foreign powers or for commercial purposes."
+  },
+  {
+    "id": "law-022", "domain": "Law & Regulation",
+    "term": "Privacy Act of 1974", "term_en": "Privacy Act of 1974",
+    "definition": "連邦政府機関による個人情報の収集、使用、普及を制限する法律。記録の正確性と個人の閲覧権を保障。",
+    "definition_en": "Regulates how federal agencies collect, maintain, use, and disseminate individuals' personal information."
+  },
+  {
+    "id": "law-023", "domain": "Law & Regulation",
+    "term": "HITECH Act", "term_en": "HITECH Act",
+    "definition": "医療情報経済的・臨床的健康法。HIPAAを強化し、データ侵害時の通知義務や、取引先（BA）への適用を拡大した。",
+    "definition_en": "Strengthens HIPAA privacy and security rules, including mandatory data breach notifications."
+  },
+  {
+    "id": "law-024", "domain": "Law & Regulation",
+    "term": "Civil Law (Continental Law)", "term_en": "Civil Law",
+    "definition": "民法体系。成文化された法典（コード）を重視する。日本や欧州の多くの国が採用している法体系。",
+    "definition_en": "A legal system based on written codes and statutes, rather than judicial precedents."
+  },
+  {
+    "id": "law-025", "domain": "Law & Regulation",
+    "term": "Common Law", "term_en": "Common Law",
+    "definition": "英米法体系。過去の判例（先例）を重視する。米国、英国、カナダ、オーストラリアなどが採用。",
+    "definition_en": "A legal system based on judicial decisions and precedents rather than codified statutes."
+  },
+  {
+    "id": "law-026", "domain": "Law & Regulation",
+    "term": "Administrative Law", "term_en": "Administrative Law",
+    "definition": "行政法。政府機関が特定の法律を実施するために定める規則や手続き（例：FCCの通信規制）。",
+    "definition_en": "Rules and regulations created by government agencies to implement and enforce specific statutes."
+  },
+  {
+    "id": "law-027", "domain": "Law & Regulation",
+    "term": "Criminal Law", "term_en": "Criminal Law",
+    "definition": "刑法。社会秩序を乱す行為を罰することを目的とする。合理的な疑いを超える（Beyond a reasonable doubt）立証が必要。",
+    "definition_en": "Law dealing with offenses against society; requires proof beyond a reasonable doubt."
+  },
+  {
+    "id": "law-028", "domain": "Law & Regulation",
+    "term": "Tort Law", "term_en": "Tort Law",
+    "definition": "不法行為法（民法の一部）。過失や故意による損害の補償を目的とする。証拠の優越（Preponderance of evidence）で判断される。",
+    "definition_en": "Branch of civil law dealing with wrongs that cause harm; uses preponderance of evidence as the standard of proof."
+  },
+  {
+    "id": "law-029", "domain": "Law & Regulation",
+    "term": "PCI DSS", "term_en": "PCI DSS",
+    "definition": "クレジットカード業界のデータセキュリティ基準。法律ではないが、契約上の義務として法的な責任（民事）を伴う。",
+    "definition_en": "A private sector standard for card data, enforced through contractual obligations rather than federal law."
+  },
+  {
+    "id": "law-030", "domain": "Law & Regulation",
+    "term": "OECD Privacy Guidelines", "term_en": "OECD Privacy Guidelines",
+    "definition": "経済協力開発機構によるプライバシー保護の8原則。GDPRなど多くの現代的なプライバシー法の基礎となっている。",
+    "definition_en": "The foundational eight principles for cross-border data flows and personal data protection."
+  }
