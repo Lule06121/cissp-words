@@ -1,4 +1,2 @@
 # cissp-words
-CISSPにて出題される単語帳アプリです.
-AI活用により作成しているため、内容の正確性は保証できません.
-ご利用の際にはご注意ください.
+This is a vocabulary list app for the CISSP exam. Because it is created using AI, the accuracy of the content cannot be guaranteed. Please use with caution.
