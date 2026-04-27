@@ -48,4 +48,135 @@
     "definition_en": "A federal law that affords parents the right to have access to their children's education records."
   },
   {
-    "id": "law-009", "domain
+    "id": "law-009", "domain": "Law & Regulation",
+    "term": "DMCA (デジタルミレニアム著作権法)", "term_en": "Digital Millennium Copyright Act (DMCA)",
+    "definition": "DRM（コピーガード）の回避を犯罪とし、要件を満たしたISPの著作権侵害責任を免除（セーフハーバー）する法律。",
+    "definition_en": "US copyright law that criminalizes circumvention of digital rights management (DRM) and limits ISP liability."
+  },
+  {
+    "id": "law-010", "domain": "Law & Regulation",
+    "term": "Economic Espionage Act (経済スパイ法)", "term_en": "Economic Espionage Act of 1996",
+    "definition": "外国政府の利益、または商業的利益を目的とした「営業秘密（Trade Secret）」の窃盗を連邦犯罪として厳罰化する法律。",
+    "definition_en": "Criminalizes the theft of trade secrets to benefit foreign powers or for commercial purposes."
+  },
+  {
+    "id": "law-011", "domain": "Law & Regulation",
+    "term": "Patents (特許権)", "term_en": "Patents",
+    "definition": "新規かつ有用な発明に対し、一定期間（通常20年）の独占権を与える。アイデアを社会に「一般公開」する代償として付与される。",
+    "definition_en": "Protects novel and useful inventions for 20 years in exchange for public disclosure of the invention."
+  },
+  {
+    "id": "law-012", "domain": "Law & Regulation",
+    "term": "Trademarks (商標権)", "term_en": "Trademarks",
+    "definition": "商品やサービスを他者と識別するためのロゴ、名前、シンボルを保護する。使用と更新を続ければ無期限に保護可能。",
+    "definition_en": "Protects words, names, symbols, and logos used to identify and distinguish goods or services."
+  },
+  {
+    "id": "law-013", "domain": "Law & Regulation",
+    "term": "Copyrights (著作権)", "term_en": "Copyrights",
+    "definition": "文学、音楽、ソフトウェアのソースコード等の創作物を保護する。アイデアそのものではなく「表現」を保護対象とする。",
+    "definition_en": "Protects original works of authorship (literature, software) focusing on expression, not the underlying idea."
+  },
+  {
+    "id": "law-014", "domain": "Law & Regulation",
+    "term": "Trade Secrets (営業秘密)", "term_en": "Trade Secrets",
+    "definition": "公開せずに秘密にすることで競争上の価値を持つ情報。保護期間はないが、リバースエンジニアリング等で合法的に解明された時点で保護は消滅する。",
+    "definition_en": "Proprietary information kept secret for competitive advantage; has no expiration as long as it remains secret."
+  },
+  {
+    "id": "law-015", "domain": "Law & Regulation",
+    "term": "GDPR (EU一般データ保護規則)", "term_en": "General Data Protection Regulation (GDPR)",
+    "definition": "個人のプライバシー保護を強化し、適法な根拠のないデータ処理やEU域外へのデータ持ち出しを厳格に制限するEUの規則。",
+    "definition_en": "EU regulation on data protection and privacy, strictly controlling data processing and cross-border transfers."
+  },
+  {
+    "id": "law-016", "domain": "Law & Regulation",
+    "term": "CCPA (カリフォルニア州消費者プライバシー法)", "term_en": "California Consumer Privacy Act (CCPA)",
+    "definition": "消費者に個人情報の削除要求権や、第三者への「販売拒否権（Opt-out）」を付与するカリフォルニア州の強力なプライバシー法。",
+    "definition_en": "A state statute giving California residents the right to delete personal data and opt-out of its sale."
+  },
+  {
+    "id": "law-017", "domain": "Law & Regulation",
+    "term": "CALEA (法執行機関のための通信援助法)", "term_en": "Communications Assistance for Law Enforcement Act (CALEA)",
+    "definition": "通信事業者やVoIP事業者に対し、政府の合法的な通信傍受（盗聴）が技術的に可能な設計を維持することを義務付ける法律。",
+    "definition_en": "Requires telecommunications carriers to modify networks to allow legal government wiretapping."
+  },
+  {
+    "id": "law-018", "domain": "Law & Regulation",
+    "term": "Privacy Act of 1974 (1974年プライバシー法)", "term_en": "Privacy Act of 1974",
+    "definition": "連邦政府機関を対象とし、個人情報の収集、使用、開示を制限する法律。国民が自身の記録にアクセスし、訂正を求める権利を保障する。",
+    "definition_en": "Regulates how federal agencies collect, maintain, use, and disseminate individuals' personal information."
+  },
+  {
+    "id": "law-019", "domain": "Law & Regulation",
+    "term": "HITECH Act (医療情報経済的・臨床的健康法)", "term_en": "HITECH Act",
+    "definition": "HIPAAを強化・拡張した法律。データ侵害が発生した際の「通知義務」の厳格化や、医療機関の取引先（ビジネスアソシエイト）への罰則適用を定めた。",
+    "definition_en": "Strengthens HIPAA privacy/security rules, mandating data breach notifications and expanding liability to business associates."
+  },
+  {
+    "id": "law-020", "domain": "Law & Regulation",
+    "term": "Civil Law System (大陸法 / 民法体系)", "term_en": "Civil Law System",
+    "definition": "裁判官の判例よりも、立法機関によって制定・成文化された法典（コード）を絶対的な基準とする法体系。日本や欧州で採用。",
+    "definition_en": "A legal system based on comprehensive written codes and statutes, rather than judicial precedents."
+  },
+  {
+    "id": "law-021", "domain": "Law & Regulation",
+    "term": "Common Law System (英米法 / 判例法体系)", "term_en": "Common Law System",
+    "definition": "過去の裁判所の「判例（先例）」を重視し、判例の蓄積によって法が形成される法体系。米国や英国で採用されている。",
+    "definition_en": "A legal system based largely on judicial decisions and precedents rather than codified statutes."
+  },
+  {
+    "id": "law-022", "domain": "Law & Regulation",
+    "term": "Administrative Law (行政法)", "term_en": "Administrative Law",
+    "definition": "行政府の機関（例：FCCやFDAなど）が、議会で制定された法律を具体的に実施・執行するために定める規則やポリシー。",
+    "definition_en": "Rules and regulations created by government agencies to implement and enforce specific statutes."
+  },
+  {
+    "id": "law-023", "domain": "Law & Regulation",
+    "term": "Criminal Law (刑法)", "term_en": "Criminal Law",
+    "definition": "社会の安全や秩序を乱す行為を扱い、投獄や罰金を科す。有罪とするには「合理的な疑いを超える」厳格な立証が必要。",
+    "definition_en": "Law dealing with offenses against society; requires proof beyond a reasonable doubt for conviction."
+  },
+  {
+    "id": "law-024", "domain": "Law & Regulation",
+    "term": "Tort Law (不法行為法)", "term_en": "Tort Law",
+    "definition": "民法の一分野。過失や故意により他人に損害を与えた場合、金銭的な賠償による救済を目的とする。「証拠の優越」で判断される。",
+    "definition_en": "Branch of civil law dealing with civil wrongs that cause harm; focuses on financial compensation."
+  },
+  {
+    "id": "law-025", "domain": "Law & Regulation",
+    "term": "PCI DSS (クレジットカード業界データセキュリティ基準)", "term_en": "Payment Card Industry Data Security Standard (PCI DSS)",
+    "definition": "クレジットカード情報の保護基準。「法律」ではないが、カードブランドとの「契約上の義務」であり、違反時には罰金等の民事責任を伴う。",
+    "definition_en": "A private sector standard for card data, enforced through contractual obligations rather than federal law."
+  },
+  {
+    "id": "law-026", "domain": "Law & Regulation",
+    "term": "OECD Privacy Guidelines (OECDプライバシーガイドライン)", "term_en": "OECD Privacy Guidelines",
+    "definition": "経済協力開発機構によるプライバシー保護の8原則（収集制限、データ正確性など）。GDPRなど各国のプライバシー法の基礎概念となっている。",
+    "definition_en": "The foundational eight principles for cross-border data flows and personal data protection globally."
+  },
+  {
+    "id": "law-027", "domain": "Law & Regulation",
+    "term": "Wassenaar Arrangement (ワッセナー・アレンジメント)", "term_en": "The Wassenaar Arrangement",
+    "definition": "通常兵器および関連技術の輸出管理に関する国際協定。強力な暗号化アルゴリズムも規制対象（デュアルユース）に含まれる。",
+    "definition_en": "International export control regime for conventional arms and dual-use goods, including strong cryptography."
+  },
+  {
+    "id": "law-028", "domain": "Law & Regulation",
+    "term": "EU-U.S. Data Privacy Framework (EU・米国データプライバシー枠組み)", "term_en": "EU-U.S. Data Privacy Framework",
+    "definition": "EUから米国への適法なデータ移転を行うための最新の協定。過去に無効化された「セーフハーバー」や「プライバシーシールド」の後継。",
+    "definition_en": "The current framework facilitating the lawful transfer of personal data from the EU to the United States."
+  },
+  {
+    "id": "law-029", "domain": "Law & Regulation",
+    "term": "Fourth Amendment (米国憲法修正第4条)", "term_en": "Fourth Amendment",
+    "definition": "国民が政府による「不合理な捜索および押収」を受けない権利を保障する。デジタルデータの捜索時に令状を求める根拠となる。",
+    "definition_en": "Protects people from unreasonable searches and seizures by the government, requiring probable cause and a warrant."
+  },
+  {
+    "id": "law-030", "domain": "Law & Regulation",
+    "term": "SLA (サービスレベル合意)", "term_en": "Service Level Agreement (SLA)",
+    "definition": "クラウド事業者などと顧客間で結ばれる、システムの稼働率や障害復旧時間（可用性）に関する契約上の法的義務。",
+    "definition_en": "A contract between a service provider and a customer specifying the expected level of service and availability."
+  }
+]
